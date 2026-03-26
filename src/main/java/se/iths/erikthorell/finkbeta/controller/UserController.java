@@ -32,11 +32,4 @@ public class UserController {
         userRepository.save(user);
         return "redirect:/";
     }
-
-    @GetMapping("/home/{id}")
-    public String home(@PathVariable Long id, Model model) {
-        User user = userRepository.findById(id).orElseThrow();
-        model.addAttribute("user", user);
-        return "home";
-    }
 }

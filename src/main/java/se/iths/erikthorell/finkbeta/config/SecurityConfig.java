@@ -19,13 +19,11 @@ public class SecurityConfig {
         this.userRepository = userRepository;
     }
 
-    // PasswordEncoder behövs för krypterade lösenord
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // UserDetailsService för Spring Security
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> userRepository.findByUsername(username)
@@ -37,15 +35,10 @@ public class SecurityConfig {
                 .orElseThrow(() -> new RuntimeException("User not found: " + username));
     }
 
-    // Dynamisk redirect efter login till /home/{id}
     @Bean
     public AuthenticationSuccessHandler successHandler() {
         return (request, response, authentication) -> {
-            String username = authentication.getName();
-            Long id = userRepository.findByUsername(username)
-                    .orElseThrow()
-                    .getId();
-            response.sendRedirect("/home/" + id);
+            response.sendRedirect("/home"); // ✅ FIX
         };
     }
 
@@ -57,16 +50,16 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/")                    // vår startsida med login-formulär
-                        .loginProcessingUrl("/login")      // form action
-                        .successHandler(successHandler())  // dynamisk redirect till /home/{id}
+                        .loginPage("/")
+                        .loginProcessingUrl("/login")
+                        .successHandler(successHandler())
                         .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
                 )
-                .csrf(csrf -> csrf.disable()); // för enklare test, annars behåll csrf
+                .csrf(csrf -> csrf.disable());
 
         return http.build();
     }

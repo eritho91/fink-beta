@@ -19,13 +19,18 @@ public class HomeController {
 
     @GetMapping("/")
     public String index() {
-        return "index"; // startsidan med login-formulär
+        return "index";
     }
 
     @GetMapping("/home")
     public String home(Model model, Principal principal) {
+        if (principal == null) {
+            return "redirect:/";
+        }
+
         User user = userRepository.findByUsername(principal.getName())
                 .orElseThrow();
+
         model.addAttribute("user", user);
         return "home";
     }
