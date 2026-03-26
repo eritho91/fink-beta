@@ -31,7 +31,7 @@ body {
 
 /* ============================= */
 /* Containers */
-.container, form, .card, ul {
+.container, .card, ul {
     background: #e8fcd4; /* ljusgrön */
     border-radius: 12px;
     padding: 20px;
