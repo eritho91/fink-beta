@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <title>Fink</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <title>Fink - Login</title>
 </head>
 <body>
-<h1>Välkommen till Fink!</h1>
+<div class="container">
+    <h1><img th:src="@{/images/fink-logo.png}" alt="Fink" style="width:150px;"></h1>
+    <h2>Välkommen till Fink</h2>
 
-<form th:action="@{/login}" method="post">
-    <label>Username:</label>
-    <input type="text" name="username" required>
-    <label>Password:</label>
-    <input type="password" name="password" required>
-    <button type="submit">Logga in</button>
-</form>
+    <form th:action="@{/login}" method="post">
+        <label for="username">Användarnamn</label>
+        <input type="text" id="username" name="username" required>
 
-<p>Ny användare? <a th:href="@{/register}">Registrera nu</a></p>
+        <label for="password">Lösenord</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Logga in</button>
+    </form>
+
+    <p>Inte medlem? <a th:href="@{/register}">Registrera ny användare</a></p>
+</div>
 </body>
 </html>
