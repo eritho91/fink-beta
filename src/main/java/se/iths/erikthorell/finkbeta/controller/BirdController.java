@@ -25,30 +25,53 @@ public class BirdController {
 
     @GetMapping
     public String listBirds(Model model, Principal principal) {
+
+        if (principal == null) {
+            return "redirect:/"; // ✅ FIX
+        }
+
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+
         List<BirdPost> birds = birdPostRepository.findAll().stream()
                 .filter(b -> b.getUser().getId().equals(user.getId()))
                 .toList();
+
         model.addAttribute("birds", birds);
-        model.addAttribute("user", user); // alltid med, annars kraschar Thymeleaf
+        model.addAttribute("user", user);
+
         return "birds";
     }
 
     @GetMapping("/new")
     public String newBirdForm(Model model, Principal principal) {
+
+        if (principal == null) {
+            return "redirect:/"; // ✅ FIX
+        }
+
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+
         BirdPost bird = new BirdPost();
         bird.setUser(user);
+
         model.addAttribute("bird", bird);
-        model.addAttribute("user", user); // för tillbaka-länk
+        model.addAttribute("user", user);
+
         return "newBirdPost";
     }
 
     @PostMapping
     public String saveBird(@ModelAttribute BirdPost bird, Principal principal) {
+
+        if (principal == null) {
+            return "redirect:/"; // ✅ FIX
+        }
+
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+
         bird.setUser(user);
         birdPostRepository.save(bird);
+
         return "redirect:/birds";
     }
 }
