@@ -16,26 +16,31 @@ body {
 /* Loggan (endast på index) */
 .logo-text {
     font-family: 'Dancing Script', cursive; /* chic skrivstil */
-    font-size: 180px; /* jättestor logga */
-    color: #2c3e20; /* mörkare grön för kontrast */
+    font-size: 48px;
+    color: #2c3e20; /* mörkgrön text */
     text-align: center;
-    margin: 80px 0 40px 0;
+    background: #d8f0d8;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 400px;
+    margin: 40px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
 /* Containers runt formulär och knappar */
 .container, form, .card {
-    background: #d8f0d8; /* ljusare grön ruta */
+    background: #d8f0d8;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
     padding: 30px;
     max-width: 400px;
-    margin: 40px auto;
+    margin: 20px auto;
     transition: background 0.3s;
 }
 
 .container:hover, form:hover, .card:hover {
-    background: #e3f5e3; /* ljusare vid hover */
+    background: #e3f5e3;
 }
 
 /* ============================= */
@@ -73,7 +78,7 @@ button {
 }
 
 button:hover {
-    background-color: #8ecb8e; /* lite mörkare vid hover */
+    background-color: #8ecb8e;
 }
 
 /* ============================= */
@@ -111,19 +116,24 @@ li:hover {
 }
 
 /* ============================= */
-/* Responsiv mobilanpassning */
+/* Mobilanpassning - full bredd med marginal */
 @media (max-width: 480px) {
     .container, form, .card, ul {
-        margin: 20px 10px;
-        padding: 20px;
+        margin: 10px;        /* liten marginal runt skärmen */
+        padding: 20px;       /* lite mindre padding */
+        max-width: none;     /* fyll hela skärmen */
+        width: calc(100% - 20px); /* 10px marginal på båda sidor */
     }
 
     .logo-text {
-        font-size: 120px;
+        font-size: 36px;
+        max-width: none;
+        width: calc(100% - 20px);
+        padding: 20px;
     }
 
     button {
         font-size: 14px;
-        padding: 8px;
+        padding: 10px;
     }
 }
