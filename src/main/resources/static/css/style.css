@@ -1,68 +1,106 @@
+/* ============================= */
+/* Importera chic skrivstil för loggan */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* ============================= */
+/* Grundinställningar */
 body {
     font-family: Arial, sans-serif;
-    background-color: #d8e6d3; /* mjuk ljus salvia-grön */
+    background-color: #dce6d2; /* mjuk ljus salvia-grön */
+    color: #2c3e50; /* alltid mörkare text än bakgrund */
     margin: 0;
     padding: 0;
-    color: #2c3e50; /* alltid mörk text */
 }
 
+/* ============================= */
+/* Loggan (endast på index) */
 .logo-container img {
     display: block;
     margin: 40px auto 20px auto;
-    width: 200px; /* stor logga */
-    font-family: 'Brush Script MT', cursive; /* skrivstil på loggan */
+    width: 350px; /* stor logga-bild */
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+.logo-text {
+    font-family: 'Great Vibes', cursive; /* chic skrivstil */
+    font-size: 80px; /* stor logga-text */
     color: #2c3e50;
-}
-
-.container {
-    background: #ffffff;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-.card {
-    display: flex;
-    flex-direction: column; /* knappar staplade vertikalt */
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.card a, .card form {
     text-align: center;
+    margin: 40px 0 20px 0;
 }
 
+/* ============================= */
+/* Containers runt formulär och knappar */
+.container, form, .card {
+    background: #ffffff; /* vit bakgrund på alla "rutor" */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    padding: 30px;
+    max-width: 400px;
+    margin: 40px auto;
+    transition: background 0.3s;
+}
+
+.container:hover, form:hover, .card:hover {
+    background: #f0f5f0; /* lite ljusare på hover */
+}
+
+/* ============================= */
+/* Formulär */
+label {
+    display: block;
+    margin-top: 10px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/* Knappar */
 button {
-    padding: 12px 20px;
-    background-color: #88b38a; /* mild salvia-grön knapp */
-    color: #ffffff;
+    display: block; /* alla knappar ovanpå varandra */
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #a2c4a4; /* mjuk salvia-grön knapp */
+    color: #2c3e50;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    width: 100%;
-    transition: background 0.3s ease;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #a0c29a; /* ljusare salvia på hover */
+    background-color: #92b690; /* lite mörkare vid hover */
 }
 
+/* ============================= */
+/* Länkar */
 a {
     text-decoration: none;
-    color: #2c3e50; /* mörk länktext */
+    color: #2c3e50;
+    font-weight: bold;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================= */
+/* Listor (t.ex. fåglar) */
 ul {
-    list-style: none;
+    max-width: 600px;
+    margin: 20px auto;
     padding: 0;
+    list-style: none;
 }
 
 li {
@@ -71,39 +109,27 @@ li {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    transition: background 0.3s ease;
-    color: #2c3e50;
+    transition: background 0.3s;
 }
 
 li:hover {
-    background: #e3f0e2; /* ljusare salvia på hover */
+    background: #f0f5f0; /* ljusare vid hover */
 }
 
-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-form input[type="text"], form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: #2c3e50;
-}
-
-@media (max-width: 600px) {
-    .container {
-        margin: 10px;
+/* ============================= */
+/* Responsiv mobilanpassning */
+@media (max-width: 480px) {
+    .container, form, .card, ul {
+        margin: 20px 10px;
         padding: 20px;
+    }
+
+    .logo-text {
+        font-size: 60px;
     }
 
     button {
         font-size: 14px;
-        padding: 10px;
+        padding: 8px;
     }
 }
