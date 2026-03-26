@@ -9,22 +9,25 @@
 <body class="center-page">
 
 <div class="container">
-    <h1 th:text="'Välkommen, ' + ${user.username} + '! 🪶'"></h1>
 
-    <div class="profile-section">
+    <!-- 🔵 PROFILBILD -->
+    <div class="profile-wrapper">
         <img th:if="${user.profileImageName != null}"
              th:src="@{'/uploads/' + ${user.profileImageName}}"
-             alt="Profilbild"
              class="profile-image">
 
-        <p th:if="${user.profileImageName == null}">Ingen profilbild uppladdad ännu.</p>
-
-        <form th:action="@{/profile/upload}" method="post" enctype="multipart/form-data">
-            <label for="image">Välj profilbild</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
-            <button type="submit">Ladda upp profilbild</button>
-        </form>
+        <div th:if="${user.profileImageName == null}" class="profile-placeholder">
+            🪶
+        </div>
     </div>
+
+    <h1 th:text="'Välkommen, ' + ${user.username} + '!'" ></h1>
+
+    <!-- UPLOAD -->
+    <form th:action="@{/profile/upload}" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Ladda upp profilbild</button>
+    </form>
 
     <div class="card">
         <a th:href="@{/birds/new}"><button>Lägg till ny fågelpost</button></a>
@@ -34,6 +37,7 @@
             <button type="submit">Logga ut</button>
         </form>
     </div>
+
 </div>
 
 </body>

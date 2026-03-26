@@ -285,3 +285,28 @@ small {
         height: 110px;
     }
 }
+/* ============================= */
+/* PROFILCIRKEL */
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.profile-image,
+.profile-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* 🔥 gör cirkel */
+    object-fit: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e8f5d6;
+    font-size: 40px;
+
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
