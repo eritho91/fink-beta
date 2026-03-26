@@ -6,29 +6,33 @@
 /* Grundinställningar */
 body {
     font-family: Arial, sans-serif;
-    background-color: #cfe8c3; /* mjuk sommar-ljusgrön */
-    color: #2c3e20; /* mörkare text än bakgrund */
+    background-color: #e6f8d6; /* mjuk, ljus lime-grön bakgrund */
+    color: #2c3e20; /* mörk text */
     margin: 0;
     padding: 0;
 }
 
 /* ============================= */
-/* Logga - ingen container, stor som formulär */
+/* Logga - ingen container, samma storlek som formulär */
 .logo-text {
     font-family: 'Dancing Script', cursive; /* chic skrivstil */
-    font-size: 48px;
-    color: #2c3e20;
+    font-size: 40px;
+    color: #2c3e20; /* mörkare text */
     text-align: center;
     margin: 20px auto;
-    width: 400px; /* samma bredd som containern */
-    max-width: 90%; /* mobilanpassning */
+    background: #d8f0d8; /* matchar containerns bakgrund */
+    border-radius: 10px; /* mjuka kanter */
+    padding: 30px;
+    max-width: 400px; /* samma som container */
+    width: 90%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
 /* Containers runt formulär och knappar */
 .container, form, .card {
-    background: #d8f0d8;
-    border-radius: 10px;
+    background: #d8f0d8; /* matchar loggan */
+    border-radius: 10px; /* mjuka kanter */
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
     padding: 30px;
     max-width: 400px;
@@ -37,7 +41,7 @@ body {
 }
 
 .container:hover, form:hover, .card:hover {
-    background: #e3f5e3;
+    background: #e3f5e3; /* lite ljusare vid hover */
 }
 
 /* ============================= */
@@ -54,28 +58,28 @@ input[type="text"], input[type="password"] {
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 5px; /* mjuka kanter */
     box-sizing: border-box;
 }
 
 /* ============================= */
 /* Knappar */
 button {
-    display: block;
+    display: block; /* knappar ovanpå varann */
     width: 100%;
     padding: 10px;
     margin-top: 20px;
-    background-color: #a2d3a2;
+    background-color: #a2d3a2; /* mjuk knappfärg */
     color: #2c3e20;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px; /* mjuka kanter */
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #8ecb8e;
+    background-color: #8ecb8e; /* ljusare vid hover */
 }
 
 /* ============================= */
@@ -103,7 +107,7 @@ li {
     background: #d8f0d8;
     margin-bottom: 10px;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 10px; /* mjuka kanter */
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     transition: background 0.3s;
 }
@@ -115,17 +119,15 @@ li:hover {
 /* ============================= */
 /* Mobilanpassning */
 @media (max-width: 480px) {
-    .container, form, .card, ul {
-        margin: 10px;             /* liten marginal runt skärmen */
+    .container, form, .card, ul, .logo-text {
+        margin: 10px;
         padding: 20px;
+        width: calc(100% - 20px); /* fyller nästan hela skärmen */
         max-width: none;
-        width: calc(100% - 20px); /* fyll nästan hela skärmen */
     }
 
     .logo-text {
         font-size: 36px;
-        width: calc(100% - 20px); /* fyller nästan hela skärmen */
-        margin: 20px auto;
     }
 
     button {
