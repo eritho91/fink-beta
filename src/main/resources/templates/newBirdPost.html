@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
     <title>Fink - Ny fågel</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1>Lägg till ny fågelpost</h1>
+<div class="logo-container">
+    <img th:src="@{/images/fink-logo.png}" alt="Fink 🐦‍⬛">
+</div>
 
-<form th:action="@{/birds}" th:object="${bird}" method="post">
-    <label>Art:</label>
-    <input type="text" th:field="*{species}" required>
-    <label>Plats:</label>
-    <input type="text" th:field="*{location}" required>
-    <button type="submit">Spara</button>
-</form>
+<div class="container">
+    <h1>Lägg till ny fågelpost</h1>
 
-<p><a th:href="@{/home}">Tillbaka till hem</a></p>
+    <form th:action="@{/birds}" th:object="${bird}" method="post">
+        <label>Art:</label>
+        <input type="text" th:field="*{species}" required>
+        <label>Plats:</label>
+        <input type="text" th:field="*{location}" required>
+        <button type="submit">Spara</button>
+    </form>
+
+    <div class="card">
+        <a th:href="@{/home}"><button>Tillbaka till hem</button></a>
+    </div>
+</div>
 </body>
 </html>

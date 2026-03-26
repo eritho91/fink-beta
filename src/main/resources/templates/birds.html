@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
     <title>Fink - Dina fåglar</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div class="logo-container">
+    <img th:src="@{/images/fink-logo.png}" alt="Fink 🐦‍⬛">
+</div>
+
 <div class="container">
     <h1 th:text="'Fåglar som ' + ${user.username} + ' har sett:'"></h1>
 
