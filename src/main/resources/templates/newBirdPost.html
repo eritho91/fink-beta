@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Fink - Ny fågel</title>
+</head>
+<body>
+<h1>Lägg till ny fågelpost</h1>
+
+<form th:action="@{/birds}" th:object="${bird}" method="post">
+    <input type="hidden" th:field="*{user.id}"/>
+    <label>Art:</label>
+    <input type="text" th:field="*{species}" required>
+    <label>Plats:</label>
+    <input type="text" th:field="*{location}" required>
+    <button type="submit">Spara</button>
+</form>
+
+<p><a th:href="@{/home/{id}(id=${bird.user.id})}">Tillbaka till hem</a></p>
+</body>
+</html>

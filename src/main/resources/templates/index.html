@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Fink - Login</title>
+</head>
+<body>
+<h1>Välkommen till Fink!</h1>
+
+<form th:action="@{/login}" method="post">
+    <label>Username:</label>
+    <input type="text" name="username" required>
+    <label>Password:</label>
+    <input type="password" name="password" required>
+    <button type="submit">Logga in</button>
+</form>
+
+<p>Ny användare? <a th:href="@{/register}">Registrera nu</a></p>
+</body>
+</html>

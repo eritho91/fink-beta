@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Fink - Home</title>
+</head>
+<body>
+<h1 th:text="'Välkommen, ' + ${user.username} + '!'"></h1>
+
+<p><a th:href="@{/birds/new}">Lägg till ny fågelpost</a></p>
+<p><a th:href="@{/birds}">Visa alla fåglar du sett</a></p>
+</body>
+</html>

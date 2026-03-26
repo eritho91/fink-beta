@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Fink - Dina fåglar</title>
+</head>
+<body>
+<h1 th:text="'Fåglar som ' + ${user.username} + ' har sett:'"></h1>
+
+<ul>
+    <li th:each="bird : ${birds}" th:text="${bird.species} + ' - ' + ${bird.location}"></li>
+</ul>
+
+<p><a th:href="@{/birds/new(userId=${user.id})}">Lägg till ny fågelpost</a></p>
+<p><a th:href="@{/home/{id}(id=${user.id})}">Tillbaka till hem</a></p>
+</body>
+</html>
