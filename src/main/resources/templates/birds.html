@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fink - Dina fåglar</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 
 <div class="container">
@@ -13,14 +13,16 @@
 
     <ul>
         <li th:each="bird : ${birds}">
-            <span th:text="${bird.species} + ' - ' + ${bird.location}"></span><br>
+            <span th:text="${bird.species} + ' - ' + ${bird.location}"></span>
             <small th:text="${#temporals.format(bird.createdAt, 'yyyy-MM-dd HH:mm')}"></small>
-        </li>    </ul>
+        </li>
+    </ul>
 
     <div class="card">
         <a th:href="@{/birds/new}"><button>Lägg till ny fågelpost</button></a>
         <a th:href="@{/home}"><button>Tillbaka till hem</button></a>
     </div>
 </div>
+
 </body>
 </html>
