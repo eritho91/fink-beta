@@ -168,3 +168,10 @@ p {
         font-size: 16px;
     }
 }
+
+small {
+    display: block;
+    margin-top: 4px;
+    color: #6a8f5c;
+    font-size: 13px;
+}

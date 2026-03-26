@@ -12,8 +12,10 @@
     <h1 th:text="'Fåglar som ' + ${user.username} + ' har sett:'"></h1>
 
     <ul>
-        <li th:each="bird : ${birds}" th:text="${bird.species} + ' - ' + ${bird.location}"></li>
-    </ul>
+        <li th:each="bird : ${birds}">
+            <span th:text="${bird.species} + ' - ' + ${bird.location}"></span><br>
+            <small th:text="${#temporals.format(bird.createdAt, 'yyyy-MM-dd HH:mm')}"></small>
+        </li>    </ul>
 
     <div class="card">
         <a th:href="@{/birds/new}"><button>Lägg till ny fågelpost</button></a>
