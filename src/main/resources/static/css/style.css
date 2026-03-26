@@ -1,89 +1,103 @@
-/* ============================= */
-/* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 /* ============================= */
-/* Grundinställningar */
+/* Grund */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff; /* vit bakgrund */
+    background-color: #ffffff;
     color: #2c3e20;
     margin: 0;
     padding: 0;
 }
 
 /* ============================= */
-/* LOGGA (ingen container) */
+/* LOGGA */
 .logo-text {
     font-family: 'Dancing Script', cursive;
-    font-size: 80px;
-    color: #2c3e20;
+    font-size: 95px;
+    color: #3a7d2c;
     text-align: center;
-    margin: 40px 0;
-
-    /* ingen box */
-    background: none;
-    padding: 0;
-    box-shadow: none;
-    border-radius: 0;
-    max-width: none;
+    margin: 30px 0 10px 0;
 }
 
 /* ============================= */
-/* Containers */
-.container, .card, ul {
-    background: #e8fcd4; /* ljusgrön */
-    border-radius: 12px;
+/* CONTAINER */
+.container {
+    width: calc(100% - 32px);
+    max-width: 420px;
+    background: #f3ffe6;
+    border-radius: 18px;
     padding: 20px;
-    margin: 15px auto;
-    max-width: 400px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.03);
-}
-
-/* Hover */
-.container:hover, form:hover, .card:hover, li:hover {
-    background: #f1ffe4;
+    margin: 16px auto;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
-/* Formulär */
+/* CARD */
+.card {
+    margin-top: 16px;
+}
+
+/* ============================= */
+/* FORM */
+form {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* ============================= */
+/* LABEL */
 label {
     display: block;
-    margin-top: 10px;
-    color: #2c3e20;
+    margin-top: 12px;
+    margin-bottom: 6px;
     font-weight: bold;
 }
 
-input[type="text"], input[type="password"] {
+/* ============================= */
+/* INPUT */
+input[type="text"],
+input[type="password"] {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #d9f7be;
+    border-radius: 14px;
+    font-size: 16px;
+    background: #ffffff;
 }
 
 /* ============================= */
-/* Knappar */
+/* BUTTON */
 button {
     display: block;
     width: 100%;
     padding: 12px;
-    margin-top: 15px;
-    background-color: #c8f5a2;
+    margin-top: 14px;
+    background: linear-gradient(135deg, #caffbf, #b5f5a3);
     color: #2c3e20;
     border: none;
-    border-radius: 10px;
+    border-radius: 14px;
     font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #b4ec8b;
+    background: linear-gradient(135deg, #b5f5a3, #a0e889);
 }
 
 /* ============================= */
-/* Länkar */
+/* LINKS */
 a {
     text-decoration: none;
     color: #2c3e20;
@@ -95,39 +109,56 @@ a:hover {
 }
 
 /* ============================= */
-/* Listor */
+/* LIST */
 ul {
-    max-width: 500px;
-    margin: 15px auto;
+    width: 100%;
     padding: 0;
+    margin: 16px 0;
     list-style: none;
 }
 
 li {
-    background: #e8fcd4;
+    background: #f7ffe8;
     margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 14px;
+    border-radius: 12px;
+    border-left: 5px solid #b8f28b;
 }
 
 /* ============================= */
-/* Mobil */
+/* TEXT */
+h1 {
+    font-size: 26px;
+    margin-top: 0;
+    word-break: break-word;
+}
+
+p {
+    word-break: break-word;
+}
+
+/* ============================= */
+/* MOBIL */
 @media (max-width: 480px) {
 
     .logo-text {
-        font-size: 60px;
-        margin: 20px 0;
+        font-size: 70px;
+        margin-top: 20px;
     }
 
-    .container, form, .card, ul {
-        width: 90%;
+    .container {
+        width: calc(100% - 20px);
+        padding: 16px;
         margin: 10px auto;
-        padding: 15px;
-        max-width: none;
     }
 
+    h1 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="password"],
     button {
-        font-size: 14px;
-        padding: 12px;
+        font-size: 16px;
     }
 }
