@@ -7,16 +7,20 @@
 }
 
 html, body {
-    width: 100%;
-    overflow-x: hidden;
+    height: 100%;
+    margin: 0;
 }
 
+/* 🔥 CENTRERING FIX */
 body {
     font-family: Arial, sans-serif;
     background-color: #fffef8;
     color: #2f3e2e;
-    margin: 0;
-    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 💥 detta fixar problemet */
 }
 
 /* ============================= */
@@ -24,36 +28,25 @@ body {
 .logo-text {
     font-family: 'Dancing Script', cursive;
     font-size: 95px;
-    text-align: center;
-    margin: 30px 0 10px 0;
     color: #4caf50;
+    margin-bottom: 20px;
 }
 
 /* ============================= */
 /* CONTAINER */
 .container {
-    width: calc(100% - 32px);
-    max-width: 420px;
+    width: 100%;
+    max-width: 380px; /* 🔥 mindre → inte fullskärm */
     background: #f0ffe6;
     border-radius: 18px;
-    padding: 24px; /* lite mer padding */
-    margin: 40px auto; /* 🔥 MER LUFT */
-    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-}
-
-/* ============================= */
-/* CARD */
-.card {
-    margin-top: 16px;
+    padding: 24px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
 /* FORM */
 form {
-    background: transparent;
-    padding: 0;
     margin-top: 10px;
-    box-shadow: none;
 }
 
 /* ============================= */
@@ -67,85 +60,38 @@ label {
 
 /* ============================= */
 /* INPUT */
-input[type="text"],
-input[type="password"] {
+input {
     width: 100%;
     padding: 12px;
     border: 1px solid #d7efc2;
     border-radius: 14px;
     font-size: 16px;
-    background: #ffffff;
 }
 
 /* ============================= */
 /* BUTTON */
 button {
-    display: block;
     width: 100%;
     padding: 12px;
     margin-top: 14px;
 
     background: linear-gradient(135deg, #9be15d, #f9d423);
-    color: #2f3e2e;
-
     border: none;
     border-radius: 14px;
     font-size: 16px;
     cursor: pointer;
 }
 
-button:hover {
-    background: linear-gradient(135deg, #8fd957, #f7c948);
-}
-
-/* ============================= */
-/* LINKS */
-a {
-    text-decoration: none;
-    color: #3c7a2f;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ============================= */
-/* LIST */
-ul {
-    width: 100%;
-    padding: 0;
-    margin: 16px 0;
-    list-style: none;
-}
-
-li {
-    background: #f7ffe8;
-    margin-bottom: 10px;
-    padding: 14px;
-    border-radius: 12px;
-    border-left: 5px solid #9be15d;
-}
-
-/* ============================= */
-/* DATUM */
-small {
-    display: block;
-    margin-top: 4px;
-    color: #7aa36a;
-    font-size: 13px;
-}
-
 /* ============================= */
 /* TEXT */
 h1 {
-    font-size: 26px;
-    margin-top: 0;
-    margin-bottom: 20px; /* 🔥 bättre spacing */
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 p {
-    color: #5f7a55;
+    text-align: center;
     margin-top: 15px;
 }
 
@@ -153,22 +99,16 @@ p {
 /* MOBIL */
 @media (max-width: 480px) {
 
+    body {
+        justify-content: flex-start; /* 🔥 viktig */
+        padding-top: 40px;
+    }
+
     .logo-text {
         font-size: 70px;
-        margin-top: 20px;
     }
 
     .container {
         width: calc(100% - 20px);
-        padding: 18px;
-        margin: 30px auto; /* 🔥 luft även på mobil */
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    input, button {
-        font-size: 16px;
     }
 }
