@@ -11,7 +11,6 @@ html, body {
     margin: 0;
 }
 
-/* 🔥 CENTRERING FIX */
 body {
     font-family: Arial, sans-serif;
     background-color: #fffef8;
@@ -20,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* 💥 detta fixar problemet */
+    justify-content: center;
 }
 
 /* ============================= */
@@ -36,11 +35,17 @@ body {
 /* CONTAINER */
 .container {
     width: 100%;
-    max-width: 380px; /* 🔥 mindre → inte fullskärm */
+    max-width: 380px;
     background: #f0ffe6;
     border-radius: 18px;
     padding: 24px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* ============================= */
+/* CARD */
+.card {
+    margin-top: 16px;
 }
 
 /* ============================= */
@@ -69,17 +74,79 @@ input {
 }
 
 /* ============================= */
-/* BUTTON */
+/* BUTTON (vanliga) */
 button {
     width: 100%;
     padding: 12px;
     margin-top: 14px;
 
     background: linear-gradient(135deg, #9be15d, #f9d423);
+    color: #2f3e2e;
+
     border: none;
     border-radius: 14px;
     font-size: 16px;
     cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #8fd957, #f7c948);
+}
+
+/* ============================= */
+/* 🔴 DELETE-KNAPP */
+li form button {
+    width: auto;
+    padding: 6px 12px;
+    margin-top: 8px;
+    font-size: 13px;
+
+    background: #ff6b6b;
+    color: white;
+
+    border-radius: 10px;
+}
+
+li form button:hover {
+    background: #e05555;
+}
+
+/* ============================= */
+/* LINKS */
+a {
+    text-decoration: none;
+    color: #3c7a2f;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================= */
+/* LIST */
+ul {
+    width: 100%;
+    padding: 0;
+    margin: 16px 0;
+    list-style: none;
+}
+
+li {
+    background: #f7ffe8;
+    margin-bottom: 10px;
+    padding: 14px;
+    border-radius: 12px;
+    border-left: 5px solid #9be15d;
+}
+
+/* ============================= */
+/* DATUM */
+small {
+    display: block;
+    margin-top: 4px;
+    color: #7aa36a;
+    font-size: 13px;
 }
 
 /* ============================= */
@@ -100,7 +167,7 @@ p {
 @media (max-width: 480px) {
 
     body {
-        justify-content: flex-start; /* 🔥 viktig */
+        justify-content: flex-start;
         padding-top: 40px;
     }
 
