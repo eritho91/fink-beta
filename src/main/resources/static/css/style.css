@@ -7,19 +7,15 @@
 }
 
 html, body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #fffef8;
     color: #2f3e2e;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 /* ============================= */
@@ -28,24 +24,54 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 95px;
     color: #4caf50;
-    margin-bottom: 20px;
+    text-align: center;
+    margin: 30px 0 20px 0;
 }
 
 /* ============================= */
-/* CONTAINER */
+/* GEMENSAM CONTAINER */
 .container {
     width: 100%;
-    max-width: 380px;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 24px;
     background: #f0ffe6;
     border-radius: 18px;
-    padding: 24px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
-/* CARD */
+/* BIRDS-SIDA */
+.birds-container {
+    max-width: 720px;
+    margin: 30px auto 50px auto;
+    padding: 24px;
+    background: #f0ffe6;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.page-title {
+    font-size: 28px;
+    margin: 0 0 22px 0;
+    text-align: center;
+    color: #2f3e2e;
+}
+
+.empty-text {
+    text-align: center;
+    color: #6a7d62;
+    margin: 20px 0;
+}
+
+/* ============================= */
+/* KORT */
 .card {
     margin-top: 16px;
+}
+
+.actions {
+    margin-top: 24px;
 }
 
 /* ============================= */
@@ -65,24 +91,25 @@ label {
 
 /* ============================= */
 /* INPUT */
-input {
+input[type="text"],
+input[type="password"],
+input[type="datetime-local"] {
     width: 100%;
     padding: 12px;
     border: 1px solid #d7efc2;
     border-radius: 14px;
     font-size: 16px;
+    background: #ffffff;
 }
 
 /* ============================= */
-/* BUTTON (vanliga) */
+/* VANLIGA KNAPPAR */
 button {
     width: 100%;
     padding: 12px;
     margin-top: 14px;
-
     background: linear-gradient(135deg, #9be15d, #f9d423);
     color: #2f3e2e;
-
     border: none;
     border-radius: 14px;
     font-size: 16px;
@@ -94,25 +121,7 @@ button:hover {
 }
 
 /* ============================= */
-/* 🔴 DELETE-KNAPP */
-li form button {
-    width: auto;
-    padding: 6px 12px;
-    margin-top: 8px;
-    font-size: 13px;
-
-    background: #ff6b6b;
-    color: white;
-
-    border-radius: 10px;
-}
-
-li form button:hover {
-    background: #e05555;
-}
-
-/* ============================= */
-/* LINKS */
+/* LÄNKAR */
 a {
     text-decoration: none;
     color: #3c7a2f;
@@ -124,20 +133,46 @@ a:hover {
 }
 
 /* ============================= */
-/* LIST */
+/* LISTA MED FÅGLAR */
 ul {
     width: 100%;
     padding: 0;
-    margin: 16px 0;
+    margin: 0;
     list-style: none;
 }
 
-li {
+.bird-item {
     background: #f7ffe8;
-    margin-bottom: 10px;
-    padding: 14px;
-    border-radius: 12px;
+    margin-bottom: 14px;
+    padding: 16px;
+    border-radius: 14px;
     border-left: 5px solid #9be15d;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.bird-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.bird-info {
+    flex: 1;
+}
+
+.bird-species {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2f3e2e;
+    margin-bottom: 6px;
+}
+
+.bird-location {
+    display: block;
+    color: #5f7a55;
+    margin-bottom: 6px;
 }
 
 /* ============================= */
@@ -150,6 +185,28 @@ small {
 }
 
 /* ============================= */
+/* DELETE-KNAPP */
+.delete-form {
+    margin: 0;
+}
+
+.delete-button {
+    width: auto;
+    min-width: 90px;
+    padding: 8px 12px;
+    margin: 0;
+    font-size: 13px;
+    background: #ff6b6b;
+    color: #ffffff;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+.delete-button:hover {
+    background: #e05555;
+}
+
+/* ============================= */
 /* TEXT */
 h1 {
     font-size: 24px;
@@ -158,24 +215,43 @@ h1 {
 }
 
 p {
-    text-align: center;
     margin-top: 15px;
+    color: #5f7a55;
 }
 
 /* ============================= */
 /* MOBIL */
 @media (max-width: 480px) {
-
-    body {
-        justify-content: flex-start;
-        padding-top: 40px;
-    }
-
     .logo-text {
         font-size: 70px;
+        margin-top: 20px;
     }
 
-    .container {
+    .container,
+    .birds-container {
         width: calc(100% - 20px);
+        margin: 20px auto 30px auto;
+        padding: 18px;
+    }
+
+    .page-title {
+        font-size: 22px;
+    }
+
+    .bird-top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .delete-button {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime-local"],
+    button {
+        font-size: 16px;
     }
 }
