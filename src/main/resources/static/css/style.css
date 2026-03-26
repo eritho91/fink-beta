@@ -24,9 +24,15 @@ body {
 .logo-text {
     font-family: 'Dancing Script', cursive;
     font-size: 95px;
-    color: #3a7d2c;
     text-align: center;
     margin: 30px 0 10px 0;
+
+    background: linear-gradient(135deg, #6bcf63, #b5f5a3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* fallback */
+    color: #3a7d2c;
 }
 
 /* ============================= */
