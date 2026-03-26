@@ -8,6 +8,8 @@ import se.iths.erikthorell.finkbeta.model.User;
 import se.iths.erikthorell.finkbeta.repository.BirdPostRepository;
 import se.iths.erikthorell.finkbeta.repository.UserRepository;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/birds")
 public class BirdPostController {
@@ -18,6 +20,14 @@ public class BirdPostController {
     public BirdPostController(BirdPostRepository birdPostRepository, UserRepository userRepository) {
         this.birdPostRepository = birdPostRepository;
         this.userRepository = userRepository;
+    }
+
+    @PostMapping("/birds")
+    public String addBird(@ModelAttribute BirdPost birdPost, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+        birdPost.setUser(user);  // sätt användaren som ägare av posten
+        birdPostRepository.save(birdPost);
+        return "redirect:/home/" + user.getId();
     }
 
     // Lista alla fåglar för en användare
