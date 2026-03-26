@@ -7,32 +7,32 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff; /* vit bakgrund */
-    color: #5b8c5a; /* mörkare limegrön text */
+    color: #2c3e20; /* standard textfärg */
     margin: 0;
     padding: 0;
 }
 
 /* ============================= */
-/* Logga - ingen container, stor */
+/* Logga - direkt i body, ingen container */
 .logo-text {
-    font-family: 'Dancing Script', cursive; /* chic skrivstil */
-    font-size: 160px; /* dubbelt så stor som innan */
-    color: #5b8c5a; /* mörk lime-text */
+    font-family: 'Dancing Script', cursive;
+    font-size: 100px; /* stor logga */
+    color: #2c3e20; /* mörk lime-text */
     text-align: center;
     margin: 20px auto;
-    background: #d4f0b2; /* mjuk lime-grön bakgrund */
-    border-radius: 15px; /* mjuka kanter */
-    padding: 40px;
-    max-width: 400px; /* samma som container */
+    background: #d8f5a2; /* mjuk lime-grön */
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 400px;
     width: 90%;
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
-/* Containers runt formulär och knappar */
-.container, form, .card {
-    background: #d4f0b2; /* mjuk lime-grön */
-    border-radius: 15px; /* mjuka kanter */
+/* Containers för formulär, knappar, listor */
+.container, form, .card, ul {
+    background: #d8f5a2; /* mjuk lime-grön */
+    border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
     padding: 30px;
     max-width: 400px;
@@ -40,8 +40,8 @@ body {
     transition: background 0.3s;
 }
 
-.container:hover, form:hover, .card:hover {
-    background: #e0f8c7; /* lite ljusare vid hover */
+.container:hover, form:hover, .card:hover, li:hover {
+    background: #e3f9b5; /* lite ljusare på hover */
 }
 
 /* ============================= */
@@ -49,7 +49,7 @@ body {
 label {
     display: block;
     margin-top: 10px;
-    color: #5b8c5a; /* mörkare lime-text */
+    color: #2c3e20;
     font-weight: bold;
 }
 
@@ -58,7 +58,7 @@ input[type="text"], input[type="password"] {
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     box-sizing: border-box;
 }
 
@@ -69,24 +69,24 @@ button {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
-    background-color: #b9f0a0; /* ljus limegrön */
-    color: #5b8c5a;
+    background-color: #b9f07c; /* mjuk lime */
+    color: #2c3e20;
     border: none;
-    border-radius: 15px; /* mjuka kanter */
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #c5f7b0; /* ljusare vid hover */
+    background-color: #a8e568; /* mörkare vid hover */
 }
 
 /* ============================= */
 /* Länkar */
 a {
     text-decoration: none;
-    color: #5b8c5a;
+    color: #2c3e20;
     font-weight: bold;
 }
 
@@ -95,7 +95,7 @@ a:hover {
 }
 
 /* ============================= */
-/* Listor (t.ex. fåglar) */
+/* Listor */
 ul {
     max-width: 600px;
     margin: 20px auto;
@@ -104,30 +104,26 @@ ul {
 }
 
 li {
-    background: #d4f0b2;
+    background: #d8f5a2;
     margin-bottom: 10px;
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     transition: background 0.3s;
-}
-
-li:hover {
-    background: #e0f8c7;
 }
 
 /* ============================= */
 /* Mobilanpassning */
 @media (max-width: 480px) {
-    .container, form, .card, ul, .logo-text {
+    .logo-text, .container, form, .card, ul {
+        width: calc(100% - 20px);
         margin: 10px;
         padding: 20px;
-        width: calc(100% - 20px);
         max-width: none;
     }
 
     .logo-text {
-        font-size: 140px;
+        font-size: 80px;
     }
 
     button {
