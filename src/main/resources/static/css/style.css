@@ -13,25 +13,20 @@ html, body {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f5; /* ljus varm grå */
-    color: #3a3a3a;
+    background-color: #fffef8; /* varm vit */
+    color: #2f3e2e;
     margin: 0;
     padding: 0;
 }
 
 /* ============================= */
-/* LOGGA (grå gradient) */
+/* LOGGA (utan gradient) */
 .logo-text {
     font-family: 'Dancing Script', cursive;
     font-size: 95px;
     text-align: center;
     margin: 30px 0 10px 0;
-
-    background: linear-gradient(135deg, #6f6f6f, #bdbdbd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    color: #6f6f6f; /* fallback */
+    color: #4caf50; /* somrig grön */
 }
 
 /* ============================= */
@@ -39,11 +34,11 @@ body {
 .container {
     width: calc(100% - 32px);
     max-width: 420px;
-    background: #ffffff;
+    background: #f0ffe6; /* ljus somrig grön */
     border-radius: 18px;
     padding: 20px;
     margin: 16px auto;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
 }
 
 /* ============================= */
@@ -68,7 +63,6 @@ label {
     margin-top: 12px;
     margin-bottom: 6px;
     font-weight: bold;
-    color: #555;
 }
 
 /* ============================= */
@@ -77,10 +71,10 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 12px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #d7efc2;
     border-radius: 14px;
     font-size: 16px;
-    background: #fafafa;
+    background: #ffffff;
 }
 
 /* ============================= */
@@ -91,8 +85,8 @@ button {
     padding: 12px;
     margin-top: 14px;
 
-    background: linear-gradient(135deg, #e0e0e0, #cfcfcf);
-    color: #3a3a3a;
+    background: linear-gradient(135deg, #9be15d, #f9d423);
+    color: #2f3e2e;
 
     border: none;
     border-radius: 14px;
@@ -101,14 +95,14 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #d5d5d5, #bfbfbf);
+    background: linear-gradient(135deg, #8fd957, #f7c948);
 }
 
 /* ============================= */
 /* LINKS */
 a {
     text-decoration: none;
-    color: #5a5a5a;
+    color: #3c7a2f;
     font-weight: bold;
 }
 
@@ -126,11 +120,11 @@ ul {
 }
 
 li {
-    background: #f1f1ef;
+    background: #f7ffe8;
     margin-bottom: 10px;
     padding: 14px;
     border-radius: 12px;
-    border-left: 4px solid #c9c9c9;
+    border-left: 5px solid #9be15d;
 }
 
 /* ============================= */
@@ -138,7 +132,7 @@ li {
 small {
     display: block;
     margin-top: 4px;
-    color: #8a8a8a;
+    color: #7aa36a;
     font-size: 13px;
 }
 
@@ -150,7 +144,7 @@ h1 {
 }
 
 p {
-    color: #666;
+    color: #5f7a55;
 }
 
 /* ============================= */
