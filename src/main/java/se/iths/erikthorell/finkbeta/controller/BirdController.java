@@ -38,17 +38,17 @@ public class BirdController {
     public String newBirdForm(Model model, Principal principal) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
         BirdPost bird = new BirdPost();
-        bird.setUser(user);                 // bind user här
+        bird.setUser(user);
         model.addAttribute("bird", bird);
-        model.addAttribute("user", user);   // för tillbaka-länk
+        model.addAttribute("user", user); // för tillbaka-länk
         return "newBirdPost";
     }
 
     @PostMapping
     public String saveBird(@ModelAttribute BirdPost bird, Principal principal) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
-        bird.setUser(user);                 // säkerställ att rätt user sätts
+        bird.setUser(user);
         birdPostRepository.save(bird);
-        return "redirect:/birds";           // redirect med Principal fungerar
+        return "redirect:/birds";
     }
 }
