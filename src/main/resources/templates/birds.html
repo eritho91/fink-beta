@@ -5,12 +5,17 @@
     <title>Fink - Dina fåglar</title>
 </head>
 <body>
-<h1 th:text="'Fåglar som ' + ${user.username} + ' har sett:'"></h1>
+<div class="container">
+    <h1 th:text="'Fåglar som ' + ${user.username} + ' har sett:'"></h1>
 
-<ul>
-    <li th:each="bird : ${birds}" th:text="${bird.species} + ' - ' + ${bird.location}"></li>
-</ul>
-<p><a th:href="@{/birds/new}">Lägg till ny fågelpost</a></p>
-<p><a th:href="@{/home}">Tillbaka till hem</a></p>
+    <ul>
+        <li th:each="bird : ${birds}" th:text="${bird.species} + ' - ' + ${bird.location}"></li>
+    </ul>
+
+    <div class="card">
+        <a th:href="@{/birds/new}"><button>Lägg till ny fågelpost</button></a>
+        <a th:href="@{/home}"><button>Tillbaka till hem</button></a>
+    </div>
+</div>
 </body>
 </html>

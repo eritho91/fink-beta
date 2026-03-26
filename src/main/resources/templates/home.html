@@ -5,12 +5,16 @@
     <title>Fink - Home</title>
 </head>
 <body>
-<h1 th:text="'Välkommen, ' + ${user.username} + '!'"></h1>
+<div class="container">
+    <h1 th:text="'🪶Välkommen, ' + ${user.username} + '!'"></h1>
 
-<p><a th:href="@{/birds/new}">Lägg till ny fågelpost</a></p>
-<p><a th:href="@{/birds}">Visa alla fåglar du sett</a></p>
-<form th:action="@{/logout}" method="post" style="display:inline">
-    <button type="submit">Logga ut</button>
-</form>
+    <div class="card">
+        <a th:href="@{/birds/new}"><button>Lägg till ny fågelpost</button></a>
+        <a th:href="@{/birds}"><button>Visa alla fåglar du sett</button></a>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logga ut</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

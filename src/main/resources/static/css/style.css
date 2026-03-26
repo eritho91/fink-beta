@@ -21,30 +21,31 @@ body {
     text-align: center;
     margin-bottom: 30px;
     font-family: 'Dancing Script', cursive;
-    font-size: 72px; /* mycket större logga */
+    font-size: 72px;
     color: #37b89f;
 }
 
 .logo-container img {
-    max-width: 300px; /* större logga */
+    max-width: 300px;
 }
 
 /* ===============================
-   Container
+   Vit container
 ================================= */
-.container {
+.container, .card {
     background: #ffffff;
     border-radius: 15px;
-    padding: 40px 30px;
+    padding: 30px 25px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 450px;
+    margin-bottom: 20px;
     text-align: center;
     transition: transform 0.2s;
 }
 
-.container:hover {
-    transform: translateY(-5px);
+.container:hover, .card:hover {
+    transform: translateY(-3px);
 }
 
 /* ===============================
@@ -96,7 +97,25 @@ button:hover {
 }
 
 /* ===============================
-   Links
+   Listor
+================================= */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: #ffffff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+/* ===============================
+   Länkar
 ================================= */
 a {
     color: #2f9a84;
@@ -109,11 +128,11 @@ a:hover {
 }
 
 /* ===============================
-   Responsivitet
+   Mobilanpassning
 ================================= */
 @media (max-width: 500px) {
-    .container {
-        padding: 30px 20px;
+    .container, .card {
+        padding: 25px 15px;
     }
 
     button, input[type="text"], input[type="password"] {
