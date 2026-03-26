@@ -1,5 +1,5 @@
 /* ============================= */
-/* Importera Dancing Script för loggan */
+/* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 /* ============================= */
@@ -7,41 +7,42 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff; /* vit bakgrund */
-    color: #2c3e20; /* standard textfärg */
+    color: #2c3e20;
     margin: 0;
     padding: 0;
 }
 
 /* ============================= */
-/* Logga - direkt i body, ingen container */
+/* LOGGA (ingen container) */
 .logo-text {
     font-family: 'Dancing Script', cursive;
-    font-size: 100px; /* stor logga */
-    color: #2c3e20; /* mörk lime-text */
+    font-size: 80px;
+    color: #2c3e20;
     text-align: center;
-    margin: 20px auto;
-    background: #d8f5a2; /* mjuk lime-grön */
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 400px;
-    width: 90%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    margin: 40px 0;
+
+    /* ingen box */
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    max-width: none;
 }
 
 /* ============================= */
-/* Containers för formulär, knappar, listor */
+/* Containers */
 .container, form, .card, ul {
-    background: #d8f5a2; /* mjuk lime-grön */
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.05);
-    padding: 30px;
+    background: #e8fcd4; /* ljusgrön */
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px auto;
     max-width: 400px;
-    margin: 20px auto;
-    transition: background 0.3s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.03);
 }
 
+/* Hover */
 .container:hover, form:hover, .card:hover, li:hover {
-    background: #e3f9b5; /* lite ljusare på hover */
+    background: #f1ffe4;
 }
 
 /* ============================= */
@@ -67,19 +68,18 @@ input[type="text"], input[type="password"] {
 button {
     display: block;
     width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #b9f07c; /* mjuk lime */
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #c8f5a2;
     color: #2c3e20;
     border: none;
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #a8e568; /* mörkare vid hover */
+    background-color: #b4ec8b;
 }
 
 /* ============================= */
@@ -97,37 +97,37 @@ a:hover {
 /* ============================= */
 /* Listor */
 ul {
-    max-width: 600px;
-    margin: 20px auto;
+    max-width: 500px;
+    margin: 15px auto;
     padding: 0;
     list-style: none;
 }
 
 li {
-    background: #d8f5a2;
+    background: #e8fcd4;
     margin-bottom: 10px;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    transition: background 0.3s;
 }
 
 /* ============================= */
-/* Mobilanpassning */
+/* Mobil */
 @media (max-width: 480px) {
-    .logo-text, .container, form, .card, ul {
-        width: calc(100% - 20px);
-        margin: 10px;
-        padding: 20px;
-        max-width: none;
-    }
 
     .logo-text {
-        font-size: 80px;
+        font-size: 60px;
+        margin: 20px 0;
+    }
+
+    .container, form, .card, ul {
+        width: 90%;
+        margin: 10px auto;
+        padding: 15px;
+        max-width: none;
     }
 
     button {
         font-size: 14px;
-        padding: 10px;
+        padding: 12px;
     }
 }
