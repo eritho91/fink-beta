@@ -1,38 +1,31 @@
 /* ============================= */
-/* Importera chic skrivstil för loggan */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/* Importera Dancing Script för loggan */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 /* ============================= */
 /* Grundinställningar */
 body {
     font-family: Arial, sans-serif;
-    background-color: #dce6d2; /* mjuk ljus salvia-grön */
-    color: #2c3e50; /* alltid mörkare text än bakgrund */
+    background-color: #cfe8c3; /* mjuk sommar-ljusgrön */
+    color: #2c3e20; /* mörkare text än bakgrund */
     margin: 0;
     padding: 0;
 }
 
 /* ============================= */
 /* Loggan (endast på index) */
-.logo-container img {
-    display: block;
-    margin: 40px auto 20px auto;
-    width: 450px; /* mycket större logga-bild */
-    filter: brightness(1) saturate(1.2); /* kan justeras för ljusgrön ton */
-}
-
 .logo-text {
-    font-family: 'Great Vibes', cursive; /* chic skrivstil */
-    font-size: 100px; /* stor logga-text */
-    color: #7ecf82; /* ljusgrön sommar-ton */
+    font-family: 'Dancing Script', cursive; /* chic skrivstil */
+    font-size: 180px; /* jättestor logga */
+    color: #2c3e20; /* mörkare grön för kontrast */
     text-align: center;
-    margin: 40px 0 20px 0;
+    margin: 80px 0 40px 0;
 }
 
 /* ============================= */
 /* Containers runt formulär och knappar */
 .container, form, .card {
-    background: #ffffff; /* vit bakgrund på alla "rutor" */
+    background: #d8f0d8; /* ljusare grön ruta */
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
     padding: 30px;
@@ -42,7 +35,7 @@ body {
 }
 
 .container:hover, form:hover, .card:hover {
-    background: #f0f5f0; /* lite ljusare på hover */
+    background: #e3f5e3; /* ljusare vid hover */
 }
 
 /* ============================= */
@@ -50,7 +43,7 @@ body {
 label {
     display: block;
     margin-top: 10px;
-    color: #2c3e50;
+    color: #2c3e20;
     font-weight: bold;
 }
 
@@ -66,12 +59,12 @@ input[type="text"], input[type="password"] {
 /* ============================= */
 /* Knappar */
 button {
-    display: block; /* alla knappar ovanpå varandra */
+    display: block;
     width: 100%;
     padding: 10px;
     margin-top: 20px;
-    background-color: #a2c4a4; /* mjuk salvia-grön knapp */
-    color: #2c3e50;
+    background-color: #a2d3a2; /* mjuk sommar-ljusgrön knapp */
+    color: #2c3e20;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -80,14 +73,14 @@ button {
 }
 
 button:hover {
-    background-color: #92b690; /* lite mörkare vid hover */
+    background-color: #8ecb8e; /* lite mörkare vid hover */
 }
 
 /* ============================= */
 /* Länkar */
 a {
     text-decoration: none;
-    color: #2c3e50;
+    color: #2c3e20;
     font-weight: bold;
 }
 
@@ -105,7 +98,7 @@ ul {
 }
 
 li {
-    background: #ffffff;
+    background: #d8f0d8;
     margin-bottom: 10px;
     padding: 15px;
     border-radius: 8px;
@@ -114,7 +107,7 @@ li {
 }
 
 li:hover {
-    background: #f0f5f0; /* ljusare vid hover */
+    background: #e3f5e3;
 }
 
 /* ============================= */
@@ -126,7 +119,7 @@ li:hover {
     }
 
     .logo-text {
-        font-size: 70px;
+        font-size: 120px;
     }
 
     button {
