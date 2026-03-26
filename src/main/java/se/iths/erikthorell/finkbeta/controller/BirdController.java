@@ -2,17 +2,17 @@ package se.iths.erikthorell.finkbeta.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import se.iths.erikthorell.finkbeta.model.BirdPost;
 import se.iths.erikthorell.finkbeta.model.User;
 import se.iths.erikthorell.finkbeta.repository.BirdPostRepository;
 import se.iths.erikthorell.finkbeta.repository.UserRepository;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
+@RequestMapping("/birds")
 public class BirdController {
 
     private final BirdPostRepository birdPostRepository;
@@ -23,17 +23,31 @@ public class BirdController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/birds/new")
+    // Lista alla fåglar för inloggad användare
+    @GetMapping
+    public String listBirds(Model model, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+        List<BirdPost> birds = birdPostRepository.findAll().stream()
+                .filter(b -> b.getUser().getId().equals(user.getId()))
+                .toList();
+        model.addAttribute("birds", birds);
+        model.addAttribute("user", user);
+        return "birds";
+    }
+
+    // Formulär för ny fågelpost
+    @GetMapping("/new")
     public String newBirdForm(Model model) {
-        model.addAttribute("bird", new BirdPost()); // <-- måste finnas för th:object
+        model.addAttribute("bird", new BirdPost()); // th:object i Thymeleaf behöver detta
         return "newBirdPost";
     }
 
-    @PostMapping("/birds")
-    public String addBird(@ModelAttribute BirdPost birdPost, Principal principal) {
+    // Spara ny fågelpost
+    @PostMapping
+    public String saveBird(@ModelAttribute BirdPost bird, Principal principal) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
-        birdPost.setUser(user);            // sätt användaren som ägare
-        birdPostRepository.save(birdPost);
-        return "redirect:/home/" + user.getId();
+        bird.setUser(user);  // sätt inloggad användare som ägare
+        birdPostRepository.save(bird);
+        return "redirect:/birds"; // tillbaka till listan
     }
 }
