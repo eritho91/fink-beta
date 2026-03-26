@@ -1,21 +1,29 @@
 /* ===============================
-   Reset & Body
+   Body & Font
 ================================= */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #e0f2eb; /* ljus jade-grön bakgrund */
+    font-family: 'Dancing Script', cursive;
+    background-color: #e0f2eb; /* ljus jade-grön */
     color: #2c3e50;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     padding: 20px;
+}
+
+/* ===============================
+   Logo ovanför boxen
+================================= */
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 150px;
 }
 
 /* ===============================
@@ -37,18 +45,7 @@ body {
 }
 
 /* ===============================
-   Logo & Headers
-================================= */
-h1 {
-    margin-bottom: 30px;
-}
-
-h1 img {
-    width: 120px;
-}
-
-/* ===============================
-   Forms
+   Form & Buttons
 ================================= */
 form {
     display: flex;
@@ -59,7 +56,7 @@ form {
 label {
     text-align: left;
     font-weight: 600;
-    color: #1b4332; /* mörk jade-grön */
+    color: #1b4332;
 }
 
 input[type="text"],
@@ -69,7 +66,6 @@ input[type="password"] {
     border: 1px solid #a3d9c8;
     background: #f0fdf7;
     font-size: 14px;
-    transition: border 0.2s, background 0.2s;
 }
 
 input[type="text"]:focus,
@@ -83,7 +79,7 @@ button {
     padding: 12px;
     border: none;
     border-radius: 8px;
-    background-color: #37b89f; /* jade-grön knapp */
+    background-color: #37b89f;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -107,24 +103,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-/* ===============================
-   Listor (birds.html)
-================================= */
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-li {
-    background: #d9f3eb; /* ljus jade-grön ton */
-    margin-bottom: 12px;
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-    font-weight: 500;
 }
 
 /* ===============================
