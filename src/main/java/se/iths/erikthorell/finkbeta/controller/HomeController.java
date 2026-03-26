@@ -25,7 +25,7 @@ public class HomeController {
     @GetMapping("/home")
     public String home(Model model, Principal principal) {
         if (principal == null) {
-            return "redirect:/";
+            return "index"; // visa login istället, ingen redirect
         }
 
         User user = userRepository.findByUsername(principal.getName())
