@@ -37,11 +37,14 @@ public class BirdController {
 
     // Formulär för ny fågelpost
     @GetMapping("/new")
-    public String newBirdForm(Model model) {
-        model.addAttribute("bird", new BirdPost()); // th:object i Thymeleaf behöver detta
+    public String newBirdForm(Model model, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+        BirdPost bird = new BirdPost();
+        bird.setUser(user);           // spara ägaren direkt
+        model.addAttribute("bird", bird);
+        model.addAttribute("user", user); // <--- lägg till user för hem-länk
         return "newBirdPost";
     }
-
     // Spara ny fågelpost
     @PostMapping
     public String saveBird(@ModelAttribute BirdPost bird, Principal principal) {

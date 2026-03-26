@@ -11,7 +11,7 @@
     <li th:each="bird : ${birds}" th:text="${bird.species} + ' - ' + ${bird.location}"></li>
 </ul>
 
-<p><a th:href="@{/birds/new(userId=${user.id})}">Lägg till ny fågelpost</a></p>
+<p><a th:href="@{/birds/new}">Lägg till ny fågelpost</a></p>
 <p><a th:href="@{/home/{id}(id=${user.id})}">Tillbaka till hem</a></p>
 </body>
 </html>
