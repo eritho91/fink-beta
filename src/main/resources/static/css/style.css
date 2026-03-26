@@ -19,21 +19,37 @@ body {
 }
 
 /* ============================= */
+/* SIDLAYOUT */
+.center-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.top-page {
+    min-height: 100vh;
+    padding: 24px 0 40px 0;
+}
+
+/* ============================= */
 /* LOGGA */
 .logo-text {
     font-family: 'Dancing Script', cursive;
     font-size: 95px;
     color: #4caf50;
     text-align: center;
-    margin: 30px 0 20px 0;
+    margin: 0 0 20px 0;
 }
 
 /* ============================= */
-/* CONTAINER */
+/* VANLIG CONTAINER */
 .container {
     width: 100%;
     max-width: 380px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 24px;
     background: #f0ffe6;
     border-radius: 18px;
@@ -41,28 +57,111 @@ body {
 }
 
 /* ============================= */
-/* 🔥 BIRDS CONTAINER (FIX) */
+/* BIRDS CONTAINER */
 .birds-container {
     width: 100%;
-    max-width: 420px; /* 🔥 var 720 → nu smal igen */
-    margin: 30px auto 50px auto;
-    padding: 20px;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 22px;
     background: #f0ffe6;
     border-radius: 18px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
-/* TITLE */
-.page-title {
+/* TITLAR */
+h1 {
     font-size: 24px;
-    margin: 0 0 18px 0;
+    margin: 0 0 20px 0;
     text-align: center;
 }
 
+.page-title {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+    color: #5f7a55;
+}
+
+.empty-text {
+    text-align: center;
+    color: #6a7d62;
+    margin: 20px 0;
+}
+
 /* ============================= */
-/* LIST */
+/* FORM */
+form {
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d7efc2;
+    border-radius: 14px;
+    font-size: 16px;
+    background: #ffffff;
+}
+
+/* ============================= */
+/* KNAPPAR */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 14px;
+    background: linear-gradient(135deg, #9be15d, #f9d423);
+    color: #2f3e2e;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #8fd957, #f7c948);
+}
+
+/* ============================= */
+/* LÄNKAR */
+a {
+    text-decoration: none;
+    color: #3c7a2f;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================= */
+/* CARD / ACTIONS */
+.card {
+    margin-top: 16px;
+}
+
+.actions {
+    margin-top: 22px;
+}
+
+/* ============================= */
+/* LISTA */
 ul {
+    width: 100%;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -76,12 +175,11 @@ ul {
     border-left: 4px solid #9be15d;
 }
 
-/* ============================= */
-/* LAYOUT */
 .bird-top {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    align-items: flex-start;
 }
 
 .bird-info {
@@ -89,34 +187,43 @@ ul {
 }
 
 .bird-species {
+    display: block;
     font-weight: bold;
     font-size: 16px;
-    display: block;
+    color: #2f3e2e;
+    margin-bottom: 4px;
 }
 
 .bird-location {
+    display: block;
     font-size: 14px;
     color: #5f7a55;
+    margin-bottom: 4px;
 }
 
-/* ============================= */
-/* DATUM */
 small {
-    font-size: 12px;
+    display: block;
+    margin-top: 4px;
     color: #7aa36a;
+    font-size: 12px;
 }
 
 /* ============================= */
 /* DELETE */
+.delete-form {
+    margin: 0;
+}
+
 .delete-button {
+    width: auto;
+    padding: 6px 10px;
+    margin: 0;
     background: #ff6b6b;
     color: white;
     border: none;
     border-radius: 10px;
-    padding: 6px 10px;
     font-size: 12px;
     cursor: pointer;
-    height: fit-content;
 }
 
 .delete-button:hover {
@@ -124,29 +231,26 @@ small {
 }
 
 /* ============================= */
-/* BUTTON */
-button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 12px;
-    background: linear-gradient(135deg, #9be15d, #f9d423);
-    border: none;
-    border-radius: 14px;
-    font-size: 16px;
-}
-
-/* ============================= */
 /* MOBIL */
 @media (max-width: 480px) {
+    .center-page {
+        justify-content: flex-start;
+        padding-top: 40px;
+    }
+
+    .top-page {
+        padding-top: 20px;
+    }
 
     .logo-text {
         font-size: 70px;
+        margin-bottom: 16px;
     }
 
     .container,
     .birds-container {
         width: calc(100% - 20px);
-        margin: 20px auto;
+        padding: 18px;
     }
 
     .bird-top {
@@ -155,6 +259,6 @@ button {
 
     .delete-button {
         width: 100%;
-        margin-top: 6px;
+        margin-top: 8px;
     }
 }
