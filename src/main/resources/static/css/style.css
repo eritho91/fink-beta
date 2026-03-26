@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 /* ============================= */
-/* Grund */
+/* GRUND */
 * {
     box-sizing: border-box;
 }
@@ -13,26 +13,25 @@ html, body {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #2c3e20;
+    background-color: #f7f7f5; /* ljus varm grå */
+    color: #3a3a3a;
     margin: 0;
     padding: 0;
 }
 
 /* ============================= */
-/* LOGGA */
+/* LOGGA (grå gradient) */
 .logo-text {
     font-family: 'Dancing Script', cursive;
     font-size: 95px;
     text-align: center;
     margin: 30px 0 10px 0;
 
-    background: linear-gradient(135deg, #6bcf63, #b5f5a3);
+    background: linear-gradient(135deg, #6f6f6f, #bdbdbd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* fallback */
-    color: #3a7d2c;
+    color: #6f6f6f; /* fallback */
 }
 
 /* ============================= */
@@ -40,11 +39,11 @@ body {
 .container {
     width: calc(100% - 32px);
     max-width: 420px;
-    background: #f3ffe6;
+    background: #ffffff;
     border-radius: 18px;
     padding: 20px;
     margin: 16px auto;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
@@ -69,6 +68,7 @@ label {
     margin-top: 12px;
     margin-bottom: 6px;
     font-weight: bold;
+    color: #555;
 }
 
 /* ============================= */
@@ -77,10 +77,10 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 12px;
-    border: 1px solid #d9f7be;
+    border: 1px solid #dcdcdc;
     border-radius: 14px;
     font-size: 16px;
-    background: #ffffff;
+    background: #fafafa;
 }
 
 /* ============================= */
@@ -90,8 +90,10 @@ button {
     width: 100%;
     padding: 12px;
     margin-top: 14px;
-    background: linear-gradient(135deg, #caffbf, #b5f5a3);
-    color: #2c3e20;
+
+    background: linear-gradient(135deg, #e0e0e0, #cfcfcf);
+    color: #3a3a3a;
+
     border: none;
     border-radius: 14px;
     font-size: 16px;
@@ -99,14 +101,14 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #b5f5a3, #a0e889);
+    background: linear-gradient(135deg, #d5d5d5, #bfbfbf);
 }
 
 /* ============================= */
 /* LINKS */
 a {
     text-decoration: none;
-    color: #2c3e20;
+    color: #5a5a5a;
     font-weight: bold;
 }
 
@@ -124,11 +126,20 @@ ul {
 }
 
 li {
-    background: #f7ffe8;
+    background: #f1f1ef;
     margin-bottom: 10px;
     padding: 14px;
     border-radius: 12px;
-    border-left: 5px solid #b8f28b;
+    border-left: 4px solid #c9c9c9;
+}
+
+/* ============================= */
+/* DATUM */
+small {
+    display: block;
+    margin-top: 4px;
+    color: #8a8a8a;
+    font-size: 13px;
 }
 
 /* ============================= */
@@ -136,11 +147,10 @@ li {
 h1 {
     font-size: 26px;
     margin-top: 0;
-    word-break: break-word;
 }
 
 p {
-    word-break: break-word;
+    color: #666;
 }
 
 /* ============================= */
@@ -162,16 +172,7 @@ p {
         font-size: 22px;
     }
 
-    input[type="text"],
-    input[type="password"],
-    button {
+    input, button {
         font-size: 16px;
     }
-}
-
-small {
-    display: block;
-    margin-top: 4px;
-    color: #6a8f5c;
-    font-size: 13px;
 }
