@@ -1,10 +1,10 @@
 /* ===============================
-   Body & Font
+   Fonts
 ================================= */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 body {
-    font-family: 'Dancing Script', cursive;
+    font-family: Arial, sans-serif;
     background-color: #e0f2eb; /* ljus jade-grön */
     color: #2c3e50;
     min-height: 100vh;
@@ -15,15 +15,18 @@ body {
 }
 
 /* ===============================
-   Logo ovanför boxen
+   Logga
 ================================= */
 .logo-container {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 72px; /* mycket större logga */
+    color: #37b89f;
 }
 
 .logo-container img {
-    width: 150px;
+    max-width: 300px; /* större logga */
 }
 
 /* ===============================
@@ -116,5 +119,13 @@ a:hover {
     button, input[type="text"], input[type="password"] {
         font-size: 14px;
         padding: 10px;
+    }
+
+    .logo-container {
+        font-size: 48px;
+    }
+
+    .logo-container img {
+        max-width: 200px;
     }
 }

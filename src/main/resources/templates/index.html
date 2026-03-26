@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Fink </title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-</head>
 <body>
+<div class="logo-container">
+    <img th:src="@{/images/fink-logo.png}" alt="Fink 🐦‍⬛">
+</div>
+
 <div class="container">
-    <h1><img th:src="@{/images/fink-logo.png}" alt="Fink 🐦‍⬛" style="width:150px;"></h1>
-
     <form th:action="@{/login}" method="post">
-
         <label for="username">Användarnamn</label>
         <input type="text" id="username" name="username" required>
 
@@ -23,4 +17,3 @@
     <p>Inte medlem? <a th:href="@{/register}">Registrera ny användare</a></p>
 </div>
 </body>
-</html>
