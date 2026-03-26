@@ -17,13 +17,14 @@ body {
 .logo-container img {
     display: block;
     margin: 40px auto 20px auto;
-    width: 350px; /* stor logga-bild */
+    width: 450px; /* mycket större logga-bild */
+    filter: brightness(1) saturate(1.2); /* kan justeras för ljusgrön ton */
 }
 
 .logo-text {
     font-family: 'Great Vibes', cursive; /* chic skrivstil */
-    font-size: 80px; /* stor logga-text */
-    color: #2c3e50;
+    font-size: 100px; /* stor logga-text */
+    color: #7ecf82; /* ljusgrön sommar-ton */
     text-align: center;
     margin: 40px 0 20px 0;
 }
@@ -125,7 +126,7 @@ li:hover {
     }
 
     .logo-text {
-        font-size: 60px;
+        font-size: 70px;
     }
 
     button {
