@@ -2,22 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fink - Home</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<body>
+<body class="center-page">
 
 <div class="container">
     <h1 th:text="'Välkommen, ' + ${user.username} + '! 🪶'"></h1>
 
+    <div class="profile-section">
+        <img th:if="${user.profileImageName != null}"
+             th:src="@{'/uploads/' + ${user.profileImageName}}"
+             alt="Profilbild"
+             class="profile-image">
+
+        <p th:if="${user.profileImageName == null}">Ingen profilbild uppladdad ännu.</p>
+
+        <form th:action="@{/profile/upload}" method="post" enctype="multipart/form-data">
+            <label for="image">Välj profilbild</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <button type="submit">Ladda upp profilbild</button>
+        </form>
+    </div>
+
     <div class="card">
         <a th:href="@{/birds/new}"><button>Lägg till ny fågelpost</button></a>
         <a th:href="@{/birds}"><button>Visa alla fåglar du sett</button></a>
+
         <form th:action="@{/logout}" method="post">
             <button type="submit">Logga ut</button>
         </form>
     </div>
 </div>
+
 </body>
 </html>

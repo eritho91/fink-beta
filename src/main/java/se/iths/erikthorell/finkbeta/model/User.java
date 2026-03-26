@@ -14,6 +14,8 @@ public class User {
 
     private String password;
 
+    private String profileImageName;
+
     public Long getId() {
         return id;
     }
@@ -36,5 +38,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getProfileImageName() {
+        return profileImageName;
+    }
+
+    public void setProfileImageName(String profileImageName) {
+        this.profileImageName = profileImageName;
     }
 }
