@@ -23,7 +23,6 @@ public class BirdController {
         this.userRepository = userRepository;
     }
 
-    // Lista alla fåglar för inloggad användare
     @GetMapping
     public String listBirds(Model model, Principal principal) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
@@ -35,22 +34,21 @@ public class BirdController {
         return "birds";
     }
 
-    // Formulär för ny fågelpost
     @GetMapping("/new")
     public String newBirdForm(Model model, Principal principal) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
         BirdPost bird = new BirdPost();
-        bird.setUser(user);           // spara ägaren direkt
+        bird.setUser(user);                 // bind user här
         model.addAttribute("bird", bird);
-        model.addAttribute("user", user); // <--- lägg till user för hem-länk
+        model.addAttribute("user", user);   // för tillbaka-länk
         return "newBirdPost";
     }
-    // Spara ny fågelpost
+
     @PostMapping
     public String saveBird(@ModelAttribute BirdPost bird, Principal principal) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
-        bird.setUser(user);  // sätt inloggad användare som ägare
+        bird.setUser(user);                 // säkerställ att rätt user sätts
         birdPostRepository.save(bird);
-        return "redirect:/birds"; // tillbaka till listan
+        return "redirect:/birds";           // redirect med Principal fungerar
     }
 }
