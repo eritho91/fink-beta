@@ -1,77 +1,142 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+/* ===============================
+   Reset & Body
+================================= */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-h1 {
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f2eb; /* ljus jade-grön bakgrund */
     color: #2c3e50;
-    text-align: center;
-    margin-top: 40px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-form {
+/* ===============================
+   Container
+================================= */
+.container {
     background: #ffffff;
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* ===============================
+   Logo & Headers
+================================= */
+h1 {
+    margin-bottom: 30px;
+}
+
+h1 img {
+    width: 120px;
+}
+
+/* ===============================
+   Forms
+================================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 label {
-    display: block;
-    margin-top: 10px;
-    color: #34495e;
-    font-weight: bold;
+    text-align: left;
+    font-weight: 600;
+    color: #1b4332; /* mörk jade-grön */
 }
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+input[type="text"],
+input[type="password"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #a3d9c8;
+    background: #f0fdf7;
+    font-size: 14px;
+    transition: border 0.2s, background 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #37b89f;
+    background: #e6f7f2;
+    outline: none;
 }
 
 button {
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    background-color: #37b89f; /* jade-grön knapp */
+    color: white;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #2f9a84;
+    transform: translateY(-2px);
 }
 
+/* ===============================
+   Links
+================================= */
 a {
+    color: #2f9a84;
     text-decoration: none;
-    color: #3498db;
+    font-weight: 500;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
+/* ===============================
+   Listor (birds.html)
+================================= */
 ul {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 0;
     list-style: none;
+    padding: 0;
+    margin: 20px 0;
 }
 
 li {
-    background: #ffffff;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    background: #d9f3eb; /* ljus jade-grön ton */
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    font-weight: 500;
+}
+
+/* ===============================
+   Responsivitet
+================================= */
+@media (max-width: 500px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    button, input[type="text"], input[type="password"] {
+        font-size: 14px;
+        padding: 10px;
+    }
 }
