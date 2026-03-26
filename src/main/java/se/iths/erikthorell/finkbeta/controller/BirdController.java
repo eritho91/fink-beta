@@ -33,7 +33,7 @@ public class BirdController {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
 
         List<BirdPost> birds = birdPostRepository.findAll().stream()
-                .filter(b -> b.getUser().getId().equals(user.getId()))
+                .filter(b -> b.getUser() != null && b.getUser().getId().equals(user.getId()))
                 .toList();
 
         model.addAttribute("birds", birds);
