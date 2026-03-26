@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fink - Ny fågel</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 
 <div class="container">
@@ -14,8 +14,13 @@
     <form th:action="@{/birds}" th:object="${bird}" method="post">
         <label>Art:</label>
         <input type="text" th:field="*{species}" required>
+
         <label>Plats:</label>
         <input type="text" th:field="*{location}" required>
+
+        <label>Datum och tid:</label>
+        <input type="datetime-local" th:field="*{createdAt}" required>
+
         <button type="submit">Spara</button>
     </form>
 
@@ -23,5 +28,6 @@
         <a th:href="@{/home}"><button>Tillbaka till hem</button></a>
     </div>
 </div>
+
 </body>
 </html>

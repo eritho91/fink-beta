@@ -1,12 +1,14 @@
 package se.iths.erikthorell.finkbeta.model;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "birds")
 public class BirdPost {
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -18,8 +20,9 @@ public class BirdPost {
     private String species;
     private String location;
 
-    @Column(name="date_found")
-    private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(name = "date_found")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime createdAt;
 
     public Long getId() {
         return id;
@@ -53,6 +56,11 @@ public class BirdPost {
         this.createdAt = createdAt;
     }
 
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
