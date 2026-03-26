@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import se.iths.erikthorell.finkbeta.model.User;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import se.iths.erikthorell.finkbeta.repository.UserRepository;
 
 @Configuration
@@ -19,6 +19,36 @@ public class SecurityConfig {
         this.userRepository = userRepository;
     }
 
+    // PasswordEncoder behövs för krypterade lösenord
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    // UserDetailsService för Spring Security
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return username -> userRepository.findByUsername(username)
+                .map(user -> org.springframework.security.core.userdetails.User.builder()
+                        .username(user.getUsername())
+                        .password(user.getPassword())
+                        .roles("USER")
+                        .build())
+                .orElseThrow(() -> new RuntimeException("User not found: " + username));
+    }
+
+    // Dynamisk redirect efter login till /home/{id}
+    @Bean
+    public AuthenticationSuccessHandler successHandler() {
+        return (request, response, authentication) -> {
+            String username = authentication.getName();
+            Long id = userRepository.findByUsername(username)
+                    .orElseThrow()
+                    .getId();
+            response.sendRedirect("/home/" + id);
+        };
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -27,38 +57,17 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/")
-                        .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/home", true)
+                        .loginPage("/")                    // vår startsida med login-formulär
+                        .loginProcessingUrl("/login")      // form action
+                        .successHandler(successHandler())  // dynamisk redirect till /home/{id}
                         .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
                 )
-                .csrf(csrf -> csrf.disable()); // <-- här är rätt syntax i ny Spring Security
+                .csrf(csrf -> csrf.disable()); // för enklare test, annars behåll csrf
 
         return http.build();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return username -> {
-            // Hämta vår egen User från databasen
-            User user = userRepository.findByUsername(username)
-                    .orElseThrow(() -> new RuntimeException("User not found: " + username));
-
-            // Skapa en Security User
-            return org.springframework.security.core.userdetails.User.builder()
-                    .username(user.getUsername())
-                    .password(user.getPassword())
-                    .roles("USER")
-                    .build();
-        };
     }
 }
