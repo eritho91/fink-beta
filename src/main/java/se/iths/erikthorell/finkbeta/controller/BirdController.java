@@ -30,7 +30,7 @@ public class BirdController {
                 .filter(b -> b.getUser().getId().equals(user.getId()))
                 .toList();
         model.addAttribute("birds", birds);
-        model.addAttribute("user", user);
+        model.addAttribute("user", user); // alltid med, annars kraschar Thymeleaf
         return "birds";
     }
 
