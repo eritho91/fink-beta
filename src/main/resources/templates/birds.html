@@ -15,6 +15,10 @@
         <li th:each="bird : ${birds}">
             <span th:text="${bird.species} + ' - ' + ${bird.location}"></span>
             <small th:text="${#temporals.format(bird.createdAt, 'yyyy-MM-dd HH:mm')}"></small>
+
+            <form th:action="@{'/birds/delete/' + ${bird.id}}" method="post">
+                <button type="submit">Ta bort</button>
+            </form>
         </li>
     </ul>
 

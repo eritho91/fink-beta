@@ -27,7 +27,7 @@ public class BirdController {
     public String listBirds(Model model, Principal principal) {
 
         if (principal == null) {
-            return "redirect:/"; // ✅ FIX
+            return "redirect:/";
         }
 
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
@@ -46,7 +46,7 @@ public class BirdController {
     public String newBirdForm(Model model, Principal principal) {
 
         if (principal == null) {
-            return "redirect:/"; // ✅ FIX
+            return "redirect:/";
         }
 
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
@@ -64,13 +64,31 @@ public class BirdController {
     public String saveBird(@ModelAttribute BirdPost bird, Principal principal) {
 
         if (principal == null) {
-            return "redirect:/"; // ✅ FIX
+            return "redirect:/";
         }
 
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
 
         bird.setUser(user);
         birdPostRepository.save(bird);
+
+        return "redirect:/birds";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteBird(@PathVariable Long id, Principal principal) {
+
+        if (principal == null) {
+            return "redirect:/";
+        }
+
+        User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+
+        BirdPost bird = birdPostRepository.findById(id).orElseThrow();
+
+        if (bird.getUser() != null && bird.getUser().getId().equals(user.getId())) {
+            birdPostRepository.delete(bird);
+        }
 
         return "redirect:/birds";
     }
