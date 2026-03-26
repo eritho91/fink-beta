@@ -6,18 +6,18 @@
 /* Grundinställningar */
 body {
     font-family: Arial, sans-serif;
-    background-color: #e6f8d6; /* mjuk, ljus lime-grön bakgrund */
+    background-color: #e6f8d6; /* mjuk ljus lime-grön bakgrund */
     color: #2c3e20; /* mörk text */
     margin: 0;
     padding: 0;
 }
 
 /* ============================= */
-/* Logga - ingen container, samma storlek som formulär */
+/* Logga - ingen container, dubbelt så stor */
 .logo-text {
     font-family: 'Dancing Script', cursive; /* chic skrivstil */
-    font-size: 40px;
-    color: #2c3e20; /* mörkare text */
+    font-size: 80px; /* dubbelt så stor */
+    color: #2c3e20; /* mörk text */
     text-align: center;
     margin: 20px auto;
     background: #d8f0d8; /* matchar containerns bakgrund */
@@ -127,7 +127,7 @@ li:hover {
     }
 
     .logo-text {
-        font-size: 36px;
+        font-size: 72px; /* mobilanpassad storlek */
     }
 
     button {
