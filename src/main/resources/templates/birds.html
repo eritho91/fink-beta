@@ -6,9 +6,9 @@
     <title>Fink - Dina fåglar</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body class="top-page">
 
-<div class="logo-text">Fink 🐦‍⬛</div>
+<div class="logo-text">Fink</div>
 
 <div class="birds-container">
     <h1 class="page-title" th:text="'Fåglar som ' + ${user.username} + ' har sett'"></h1>
@@ -16,19 +16,31 @@
     <ul th:if="${!#lists.isEmpty(birds)}">
         <li class="bird-item" th:each="bird : ${birds}">
             <div class="bird-top">
+
                 <div class="bird-info">
+
+                    <div class="bird-image-wrapper" th:if="${bird.imageUrl != null}">
+                        <img th:src="${bird.imageUrl}" alt="Fågelbild" class="bird-image">
+                    </div>
+
+                    <div class="bird-image-wrapper" th:if="${bird.imageUrl == null}">
+                        <div class="bird-image-placeholder">Ingen bild</div>
+                    </div>
+
                     <span class="bird-species" th:text="${bird.species}"></span>
                     <span class="bird-location" th:text="${bird.location}"></span>
                     <small th:text="${#temporals.format(bird.createdAt, 'yyyy-MM-dd HH:mm')}"></small>
+
                 </div>
 
-                <div>
+                <div class="bird-buttons">
                     <a th:href="@{'/birds/edit/' + ${bird.id}}" class="edit-button-link">Ändra</a>
 
                     <form class="delete-form" th:action="@{'/birds/delete/' + ${bird.id}}" method="post">
                         <button class="delete-button" type="submit">Ta bort</button>
                     </form>
                 </div>
+
             </div>
         </li>
     </ul>
@@ -38,8 +50,8 @@
     </p>
 
     <div class="actions">
-        <a th:href="@{/birds/new}"><button>Lägg till ny fågelpost</button></a>
-        <a th:href="@{/home}"><button>Tillbaka till hem</button></a>
+        <a th:href="@{/birds/new}"><button type="button">Lägg till ny fågelpost</button></a>
+        <a th:href="@{/home}"><button type="button">Tillbaka till hem</button></a>
     </div>
 </div>
 
