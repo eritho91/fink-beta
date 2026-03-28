@@ -10,7 +10,6 @@
 
 <div class="container">
 
-    <!-- 🔵 PROFILBILD -->
     <div class="profile-wrapper">
         <img th:if="${user.profileImageName != null}"
              th:src="@{'/uploads/' + ${user.profileImageName}}"
@@ -21,18 +20,59 @@
         </div>
     </div>
 
-    <h1 th:text="'Välkommen, ' + ${user.username} + '!'" ></h1>
+    <h1 th:text="'Välkommen, ' + ${user.username} + '!'"></h1>
 
-    <!-- UPLOAD -->
     <form th:action="@{/profile/upload}" method="post" enctype="multipart/form-data">
         <input type="file" name="image" accept="image/*" required>
         <button type="submit">Ladda upp profilbild</button>
     </form>
 
     <div class="card">
-        <a th:href="@{/birds/new}"><button>Lägg till ny fågelpost</button></a>
-        <a th:href="@{/birds}"><button>Visa alla fåglar du sett</button></a>
+        <a th:href="@{/birds/new}"><button type="button">Lägg till ny fågelpost</button></a>
+        <a th:href="@{/birds}"><button type="button">Visa alla fåglar du sett</button></a>
+    </div>
 
+    <div class="card" th:if="${!#lists.isEmpty(incomingRequests)}">
+        <h2>Vänförfrågningar</h2>
+
+        <ul>
+            <li th:each="request : ${incomingRequests}">
+                <span th:text="${request.sender.username}"></span>
+
+                <form th:action="@{'/friends/accept/' + ${request.id}}" method="post">
+                    <button type="submit">Acceptera</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="card" th:if="${!#lists.isEmpty(friends)}">
+        <h2>Mina vänner</h2>
+
+        <ul>
+            <li th:each="friendship : ${friends}">
+                <span th:text="${friendship.sender.id == user.id ? friendship.receiver.username : friendship.sender.username}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card" th:if="${!#lists.isEmpty(allUsers)}">
+        <h2>Hitta användare</h2>
+
+        <ul>
+            <li th:each="otherUser : ${allUsers}">
+                <span th:text="${otherUser.username}"></span>
+
+                <form th:action="@{'/friends/request/' + ${otherUser.id}}" method="post">
+                    <button type="submit">Lägg till vän</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
         <form th:action="@{/logout}" method="post">
             <button type="submit">Logga ut</button>
         </form>
