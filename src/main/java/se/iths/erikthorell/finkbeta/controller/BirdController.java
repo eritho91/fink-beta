@@ -92,4 +92,49 @@ public class BirdController {
 
         return "redirect:/birds";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editBirdForm(@PathVariable Long id, Model model, Principal principal) {
+
+        if (principal == null) {
+            return "redirect:/";
+        }
+
+        User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+        BirdPost bird = birdPostRepository.findById(id).orElseThrow();
+
+        if (bird.getUser() == null || !bird.getUser().getId().equals(user.getId())) {
+            return "redirect:/birds";
+        }
+
+        model.addAttribute("bird", bird);
+        model.addAttribute("user", user);
+
+        return "editBirdPost";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String updateBird(@PathVariable Long id, @ModelAttribute BirdPost updatedBird, Principal principal) {
+
+        if (principal == null) {
+            return "redirect:/";
+        }
+
+        User user = userRepository.findByUsername(principal.getName()).orElseThrow();
+        BirdPost existingBird = birdPostRepository.findById(id).orElseThrow();
+
+        if (existingBird.getUser() == null || !existingBird.getUser().getId().equals(user.getId())) {
+            return "redirect:/birds";
+        }
+
+        existingBird.setSpecies(updatedBird.getSpecies());
+        existingBird.setLocation(updatedBird.getLocation());
+        existingBird.setCreatedAt(updatedBird.getCreatedAt());
+
+        birdPostRepository.save(existingBird);
+
+        return "redirect:/birds";
+    }
+
+
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fink - Ändra fågelpost</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Ändra fågelpost</h1>
+
+    <form th:action="@{'/birds/edit/' + ${bird.id}}" th:object="${bird}" method="post">
+        <label>Art:</label>
+        <input type="text" th:field="*{species}" required>
+
+        <label>Plats:</label>
+        <input type="text" th:field="*{location}" required>
+
+        <label>Datum och tid:</label>
+        <input type="datetime-local" th:field="*{createdAt}" required>
+
+        <button type="submit">Spara ändringar</button>
+    </form>
+
+    <div class="card">
+        <a th:href="@{/birds}"><button type="button">Tillbaka</button></a>
+    </div>
+</div>
+
+</body>
+</html>

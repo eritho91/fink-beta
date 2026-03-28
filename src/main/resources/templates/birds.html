@@ -22,9 +22,13 @@
                     <small th:text="${#temporals.format(bird.createdAt, 'yyyy-MM-dd HH:mm')}"></small>
                 </div>
 
-                <form class="delete-form" th:action="@{'/birds/delete/' + ${bird.id}}" method="post">
-                    <button class="delete-button" type="submit">Ta bort</button>
-                </form>
+                <div>
+                    <a th:href="@{'/birds/edit/' + ${bird.id}}" class="edit-button-link">Ändra</a>
+
+                    <form class="delete-form" th:action="@{'/birds/delete/' + ${bird.id}}" method="post">
+                        <button class="delete-button" type="submit">Ta bort</button>
+                    </form>
+                </div>
             </div>
         </li>
     </ul>
