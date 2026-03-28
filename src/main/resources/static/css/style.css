@@ -14,8 +14,8 @@ html, body {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #fffef8;
-    color: #2f3e2e;
+    background: linear-gradient(180deg, #fffdf7 0%, #f7f4ea 100%);
+    color: #2f3a2f;
 }
 
 /* ============================= */
@@ -39,58 +39,52 @@ body {
 .logo-text {
     font-family: 'Dancing Script', cursive;
     font-size: 95px;
-    color: #4caf50;
+    color: #5f8f5f;
     text-align: center;
-    margin: 0 0 20px 0;
+    margin: 20px 0 20px 0;
 }
 
 /* ============================= */
-/* VANLIG CONTAINER */
-.container {
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-    padding: 24px;
-    background: #f0ffe6;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-}
-
-/* ============================= */
-/* BIRDS CONTAINER */
+/* CONTAINERS */
+.container,
 .birds-container {
     width: 100%;
-    max-width: 430px;
     margin: 0 auto;
+    background: linear-gradient(180deg, #f8fbf2 0%, #eef5e6 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(60, 80, 60, 0.08);
+    border: 1px solid rgba(120, 140, 100, 0.12);
+}
+
+.container {
+    max-width: 380px;
+    padding: 24px;
+}
+
+.birds-container {
+    max-width: 430px;
     padding: 22px;
-    background: #f0ffe6;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
 /* ============================= */
 /* TITLAR */
-h1 {
-    font-size: 24px;
-    margin: 0 0 20px 0;
-    text-align: center;
-}
-
+h1,
 .page-title {
     font-size: 24px;
     margin: 0 0 20px 0;
     text-align: center;
+    color: #2f3a2f;
 }
 
 p {
     text-align: center;
     margin-top: 15px;
-    color: #5f7a55;
+    color: #667463;
 }
 
 .empty-text {
     text-align: center;
-    color: #6a7d62;
+    color: #73806f;
     margin: 20px 0;
 }
 
@@ -105,6 +99,7 @@ label {
     margin-top: 12px;
     margin-bottom: 6px;
     font-weight: bold;
+    color: #334033;
 }
 
 input[type="text"],
@@ -113,35 +108,54 @@ input[type="datetime-local"],
 input[type="file"] {
     width: 100%;
     padding: 12px;
-    border: 1px solid #d7efc2;
+    border: 1px solid #d8e2d0;
     border-radius: 14px;
     font-size: 16px;
     background: #ffffff;
+    color: #2f3a2f;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime-local"]:focus,
+input[type="file"]:focus {
+    border-color: #b8c9a8;
+    box-shadow: 0 0 0 3px rgba(184, 201, 168, 0.18);
 }
 
 /* ============================= */
-/* KNAPPAR */
+/* STANDARDKNAPPAR */
 button {
     width: 100%;
     padding: 12px;
     margin-top: 14px;
-    background: linear-gradient(135deg, #9be15d, #f9d423);
-    color: #2f3e2e;
+    background: linear-gradient(180deg, #b7d7a8 0%, #9fc48e 100%);
+    color: #233023;
     border: none;
     border-radius: 14px;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 4px 10px rgba(80, 110, 70, 0.12);
 }
 
 button:hover {
-    background: linear-gradient(135deg, #8fd957, #f7c948);
+    filter: brightness(1.02);
+    box-shadow: 0 6px 14px rgba(80, 110, 70, 0.16);
+}
+
+button:active {
+    transform: translateY(1px);
 }
 
 /* ============================= */
 /* LÄNKAR */
 a {
     text-decoration: none;
-    color: #3c7a2f;
+    color: #4f7650;
     font-weight: bold;
 }
 
@@ -165,15 +179,30 @@ a:hover {
     margin-bottom: 20px;
 }
 
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.profile-image,
+.profile-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #eef6df 0%, #e3efd1 100%);
+    font-size: 40px;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
 .profile-image {
     display: block;
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 50%;
     margin: 0 auto 14px auto;
-    border: 4px solid #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 /* ============================= */
@@ -186,17 +215,18 @@ ul {
 }
 
 .bird-item {
-    background: #f7ffe8;
+    background: linear-gradient(180deg, #fcfdf8 0%, #f4f8ee 100%);
     margin-bottom: 12px;
     padding: 14px;
-    border-radius: 12px;
-    border-left: 4px solid #9be15d;
+    border-radius: 14px;
+    border-left: 4px solid #b7d7a8;
+    box-shadow: 0 3px 8px rgba(60, 80, 60, 0.04);
 }
 
 .bird-top {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
     align-items: flex-start;
 }
 
@@ -208,44 +238,73 @@ ul {
     display: block;
     font-weight: bold;
     font-size: 16px;
-    color: #2f3e2e;
+    color: #2f3a2f;
     margin-bottom: 4px;
 }
 
 .bird-location {
     display: block;
     font-size: 14px;
-    color: #5f7a55;
+    color: #667463;
     margin-bottom: 4px;
 }
 
 small {
     display: block;
     margin-top: 4px;
-    color: #7aa36a;
+    color: #8a9682;
     font-size: 12px;
 }
 
 /* ============================= */
-/* DELETE */
+/* KNAPPAR I LISTAN */
+.edit-button-link {
+    display: inline-block;
+    min-width: 74px;
+    text-align: center;
+    padding: 7px 12px;
+    margin: 0 0 8px 0;
+    background: linear-gradient(180deg, #f3df8a 0%, #e8cb62 100%);
+    color: #4b3d14;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 3px 8px rgba(120, 100, 30, 0.14);
+    transition: transform 0.15s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-button-link:hover {
+    text-decoration: none;
+    filter: brightness(1.03);
+    box-shadow: 0 5px 10px rgba(120, 100, 30, 0.18);
+}
+
+.edit-button-link:active {
+    transform: translateY(1px);
+}
+
 .delete-form {
     margin: 0;
 }
 
 .delete-button {
     width: auto;
-    padding: 6px 10px;
+    min-width: 74px;
+    padding: 7px 12px;
     margin: 0;
-    background: #ff6b6b;
+    background: linear-gradient(180deg, #e58b8b 0%, #d86f6f 100%);
     color: white;
     border: none;
     border-radius: 10px;
     font-size: 12px;
+    font-weight: 700;
     cursor: pointer;
+    box-shadow: 0 3px 8px rgba(130, 60, 60, 0.12);
 }
 
 .delete-button:hover {
-    background: #e05555;
+    filter: brightness(1.03);
 }
 
 /* ============================= */
@@ -275,38 +334,15 @@ small {
         flex-direction: column;
     }
 
+    .edit-button-link,
     .delete-button {
         width: 100%;
         margin-top: 8px;
     }
 
-    .profile-image {
+    .profile-image,
+    .profile-placeholder {
         width: 110px;
         height: 110px;
     }
-}
-/* ============================= */
-/* PROFILCIRKEL */
-.profile-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 16px;
-}
-
-.profile-image,
-.profile-placeholder {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%; /* 🔥 gör cirkel */
-    object-fit: cover;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #e8f5d6;
-    font-size: 40px;
-
-    border: 4px solid white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
