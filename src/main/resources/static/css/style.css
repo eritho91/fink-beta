@@ -42,7 +42,7 @@ body {
     color: #7f9f46;
     text-align: center;
     line-height: 1;
-    margin: 34px 0 28px 0;
+    margin: 24px 0 24px 0;
 }
 
 /* ============================= */
@@ -63,7 +63,7 @@ body {
 }
 
 .birds-container {
-    max-width: 460px;
+    max-width: 760px;
     padding: 24px;
 }
 
@@ -177,10 +177,6 @@ a:hover {
 
 /* ============================= */
 /* PROFIL */
-.profile-section {
-    margin-bottom: 20px;
-}
-
 .profile-wrapper {
     display: flex;
     justify-content: center;
@@ -202,11 +198,6 @@ a:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.profile-image {
-    display: block;
-    margin: 0 auto 14px auto;
-}
-
 /* ============================= */
 /* LISTA */
 ul {
@@ -218,9 +209,9 @@ ul {
 
 .bird-item {
     background: linear-gradient(180deg, #fefff9 0%, #f4f8e8 100%);
-    margin-bottom: 12px;
-    padding: 14px;
-    border-radius: 14px;
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 16px;
     border-left: 4px solid #c9dc87;
     box-shadow: 0 3px 8px rgba(86, 104, 52, 0.06);
 }
@@ -228,7 +219,7 @@ ul {
 .bird-top {
     display: flex;
     justify-content: space-between;
-    gap: 12px;
+    gap: 18px;
     align-items: flex-start;
 }
 
@@ -239,16 +230,16 @@ ul {
 .bird-species {
     display: block;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     color: #2f3a2f;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .bird-location {
     display: block;
     font-size: 14px;
     color: #667463;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 small {
@@ -259,26 +250,47 @@ small {
 }
 
 /* ============================= */
-/* BILDER PÅ FÅGLAR */
+/* BILDER */
+.bird-image-wrapper {
+    margin-bottom: 12px;
+}
+
 .bird-image {
     display: block;
     width: 100%;
-    max-width: 180px;
-    height: 120px;
+    max-width: 260px;
+    height: 180px;
     object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 10px;
+    border-radius: 14px;
     border: 1px solid rgba(125, 145, 70, 0.12);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+.bird-image-placeholder {
+    width: 100%;
+    max-width: 260px;
+    height: 180px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #f1f6df 0%, #e3edc3 100%);
+    border: 1px solid rgba(125, 145, 70, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6f7f4d;
+    font-weight: 600;
+}
+
 /* ============================= */
 /* KNAPPAR I LISTAN */
+.bird-buttons {
+    min-width: 90px;
+}
+
 .edit-button-link {
     display: inline-block;
-    min-width: 74px;
+    width: 100%;
     text-align: center;
-    padding: 7px 12px;
+    padding: 8px 12px;
     margin: 0 0 8px 0;
     background: linear-gradient(180deg, #eadf8c 0%, #dfcf67 100%);
     color: #4d4115;
@@ -305,9 +317,8 @@ small {
 }
 
 .delete-button {
-    width: auto;
-    min-width: 74px;
-    padding: 7px 12px;
+    width: 100%;
+    padding: 8px 12px;
     margin: 0;
     background: linear-gradient(180deg, #dfa0a0 0%, #cf7f7f 100%);
     color: white;
@@ -332,7 +343,7 @@ small {
     }
 
     .top-page {
-        padding-top: 20px;
+        padding: 20px 10px 28px;
     }
 
     .logo-text {
@@ -349,6 +360,16 @@ small {
 
     .bird-top {
         flex-direction: column;
+    }
+
+    .bird-image,
+    .bird-image-placeholder {
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .bird-buttons {
+        width: 100%;
     }
 
     .edit-button-link,
