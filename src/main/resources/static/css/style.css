@@ -14,7 +14,7 @@ html, body {
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #fffdf7 0%, #f7f4ea 100%);
+    background: linear-gradient(180deg, #fbfdf4 0%, #f3f7e7 55%, #eef4de 100%);
     color: #2f3a2f;
 }
 
@@ -26,23 +26,23 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 32px 16px;
+    padding: 56px 16px 40px;
 }
 
 .top-page {
     min-height: 100vh;
-    padding: 24px 16px 40px 16px;
+    padding: 32px 16px 40px;
 }
 
 /* ============================= */
 /* LOGGA */
 .logo-text {
     font-family: 'Dancing Script', cursive;
-    font-size: 95px;
-    color: #5f8f5f;
+    font-size: 92px;
+    color: #7f9f46;
     text-align: center;
-    margin: 0 0 20px 0;
     line-height: 1;
+    margin: 34px 0 28px 0;
 }
 
 /* ============================= */
@@ -51,20 +51,20 @@ body {
 .birds-container {
     width: 100%;
     margin: 0 auto;
-    background: linear-gradient(180deg, #f8fbf2 0%, #eef5e6 100%);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(60, 80, 60, 0.08);
-    border: 1px solid rgba(120, 140, 100, 0.12);
+    background: linear-gradient(180deg, #fdfef8 0%, #f4f8e8 55%, #edf4dd 100%);
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(86, 104, 52, 0.10);
+    border: 1px solid rgba(150, 170, 105, 0.18);
 }
 
 .container {
-    max-width: 380px;
-    padding: 24px;
+    max-width: 400px;
+    padding: 28px;
 }
 
 .birds-container {
-    max-width: 430px;
-    padding: 22px;
+    max-width: 460px;
+    padding: 24px;
 }
 
 /* ============================= */
@@ -74,18 +74,18 @@ h1,
     font-size: 24px;
     margin: 0 0 20px 0;
     text-align: center;
-    color: #2f3a2f;
+    color: #314027;
 }
 
 p {
     text-align: center;
     margin-top: 15px;
-    color: #667463;
+    color: #687657;
 }
 
 .empty-text {
     text-align: center;
-    color: #73806f;
+    color: #7b8667;
     margin: 20px 0;
 }
 
@@ -100,7 +100,7 @@ label {
     margin-top: 12px;
     margin-bottom: 6px;
     font-weight: bold;
-    color: #334033;
+    color: #3d4b2f;
 }
 
 input[type="text"],
@@ -109,21 +109,22 @@ input[type="datetime-local"],
 input[type="file"] {
     width: 100%;
     padding: 12px;
-    border: 1px solid #d8e2d0;
+    border: 1px solid #d7e3b7;
     border-radius: 14px;
     font-size: 16px;
     background: #ffffff;
     color: #2f3a2f;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime-local"]:focus,
 input[type="file"]:focus {
-    border-color: #b8c9a8;
-    box-shadow: 0 0 0 3px rgba(184, 201, 168, 0.18);
+    border-color: #c9dc87;
+    box-shadow: 0 0 0 3px rgba(201, 220, 135, 0.24);
+    background: #fefff9;
 }
 
 /* ============================= */
@@ -132,20 +133,20 @@ button {
     width: 100%;
     padding: 12px;
     margin-top: 14px;
-    background: linear-gradient(180deg, #b7d7a8 0%, #9fc48e 100%);
-    color: #233023;
+    background: linear-gradient(180deg, #d6e59f 0%, #c9dc87 55%, #bdd274 100%);
+    color: #33411f;
     border: none;
     border-radius: 14px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
-    box-shadow: 0 4px 10px rgba(80, 110, 70, 0.12);
+    box-shadow: 0 5px 12px rgba(112, 131, 60, 0.14);
 }
 
 button:hover {
     filter: brightness(1.02);
-    box-shadow: 0 6px 14px rgba(80, 110, 70, 0.16);
+    box-shadow: 0 7px 16px rgba(112, 131, 60, 0.18);
 }
 
 button:active {
@@ -156,7 +157,7 @@ button:active {
 /* LÄNKAR */
 a {
     text-decoration: none;
-    color: #4f7650;
+    color: #668236;
     font-weight: bold;
 }
 
@@ -195,7 +196,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, #eef6df 0%, #e3efd1 100%);
+    background: linear-gradient(180deg, #f4f8e8 0%, #dfeab5 100%);
     font-size: 40px;
     border: 4px solid white;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -216,12 +217,12 @@ ul {
 }
 
 .bird-item {
-    background: linear-gradient(180deg, #fcfdf8 0%, #f4f8ee 100%);
+    background: linear-gradient(180deg, #fefff9 0%, #f4f8e8 100%);
     margin-bottom: 12px;
     padding: 14px;
     border-radius: 14px;
-    border-left: 4px solid #b7d7a8;
-    box-shadow: 0 3px 8px rgba(60, 80, 60, 0.04);
+    border-left: 4px solid #c9dc87;
+    box-shadow: 0 3px 8px rgba(86, 104, 52, 0.06);
 }
 
 .bird-top {
@@ -267,7 +268,7 @@ small {
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 10px;
-    border: 1px solid rgba(0,0,0,0.06);
+    border: 1px solid rgba(125, 145, 70, 0.12);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
@@ -279,8 +280,8 @@ small {
     text-align: center;
     padding: 7px 12px;
     margin: 0 0 8px 0;
-    background: linear-gradient(180deg, #f3df8a 0%, #e8cb62 100%);
-    color: #4b3d14;
+    background: linear-gradient(180deg, #eadf8c 0%, #dfcf67 100%);
+    color: #4d4115;
     border-radius: 10px;
     font-size: 12px;
     font-weight: 700;
@@ -308,7 +309,7 @@ small {
     min-width: 74px;
     padding: 7px 12px;
     margin: 0;
-    background: linear-gradient(180deg, #e58b8b 0%, #d86f6f 100%);
+    background: linear-gradient(180deg, #dfa0a0 0%, #cf7f7f 100%);
     color: white;
     border: none;
     border-radius: 10px;
@@ -327,7 +328,7 @@ small {
 @media (max-width: 480px) {
     .center-page {
         justify-content: center;
-        padding: 24px 10px;
+        padding: 44px 12px 28px;
     }
 
     .top-page {
@@ -335,8 +336,8 @@ small {
     }
 
     .logo-text {
-        font-size: 70px;
-        margin-bottom: 16px;
+        font-size: 72px;
+        margin: 18px 0 22px 0;
     }
 
     .container,
