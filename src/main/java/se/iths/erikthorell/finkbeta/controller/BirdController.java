@@ -7,6 +7,8 @@ import se.iths.erikthorell.finkbeta.model.BirdPost;
 import se.iths.erikthorell.finkbeta.model.User;
 import se.iths.erikthorell.finkbeta.repository.BirdPostRepository;
 import se.iths.erikthorell.finkbeta.repository.UserRepository;
+import se.iths.erikthorell.finkbeta.service.BirdImageResult;
+import se.iths.erikthorell.finkbeta.service.BirdImageService;
 
 import java.security.Principal;
 import java.util.List;
@@ -14,11 +16,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/birds")
 public class BirdController {
-
+    private final BirdImageService birdImageService;
     private final BirdPostRepository birdPostRepository;
     private final UserRepository userRepository;
 
-    public BirdController(BirdPostRepository birdPostRepository, UserRepository userRepository) {
+    public BirdController(BirdImageService birdImageService, BirdPostRepository birdPostRepository, UserRepository userRepository) {
+        this.birdImageService = birdImageService;
         this.birdPostRepository = birdPostRepository;
         this.userRepository = userRepository;
     }
@@ -70,6 +73,15 @@ public class BirdController {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
 
         bird.setUser(user);
+
+        BirdImageResult imageResult = birdImageService.fetchBirdImage(bird.getSpecies());
+
+        if (imageResult != null) {
+            bird.setImageUrl(imageResult.getImageUrl());
+            bird.setImageAttribution(imageResult.getAttribution());
+            bird.setImageSource(imageResult.getSource());
+        }
+
         birdPostRepository.save(bird);
 
         return "redirect:/birds";

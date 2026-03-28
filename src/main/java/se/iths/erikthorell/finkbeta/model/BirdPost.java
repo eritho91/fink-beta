@@ -24,6 +24,10 @@ public class BirdPost {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime createdAt;
 
+    private String imageUrl;
+    private String imageAttribution;
+    private String imageSource;
+
     public Long getId() {
         return id;
     }
@@ -62,5 +66,29 @@ public class BirdPost {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageAttribution() {
+        return imageAttribution;
+    }
+
+    public void setImageAttribution(String imageAttribution) {
+        this.imageAttribution = imageAttribution;
+    }
+
+    public String getImageSource() {
+        return imageSource;
+    }
+
+    public void setImageSource(String imageSource) {
+        this.imageSource = imageSource;
     }
 }
