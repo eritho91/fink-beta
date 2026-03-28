@@ -26,12 +26,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 24px 0;
+    padding: 32px 16px;
 }
 
 .top-page {
     min-height: 100vh;
-    padding: 24px 0 40px 0;
+    padding: 24px 16px 40px 16px;
 }
 
 /* ============================= */
@@ -41,7 +41,8 @@ body {
     font-size: 95px;
     color: #5f8f5f;
     text-align: center;
-    margin: 20px 0 20px 0;
+    margin: 0 0 20px 0;
+    line-height: 1;
 }
 
 /* ============================= */
@@ -257,6 +258,20 @@ small {
 }
 
 /* ============================= */
+/* BILDER PÅ FÅGLAR */
+.bird-image {
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ============================= */
 /* KNAPPAR I LISTAN */
 .edit-button-link {
     display: inline-block;
@@ -311,8 +326,8 @@ small {
 /* MOBIL */
 @media (max-width: 480px) {
     .center-page {
-        justify-content: flex-start;
-        padding-top: 40px;
+        justify-content: center;
+        padding: 24px 10px;
     }
 
     .top-page {
@@ -326,7 +341,8 @@ small {
 
     .container,
     .birds-container {
-        width: calc(100% - 20px);
+        width: 100%;
+        max-width: 100%;
         padding: 18px;
     }
 
